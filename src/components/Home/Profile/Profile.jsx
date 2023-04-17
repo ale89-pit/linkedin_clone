@@ -1,5 +1,29 @@
-const Profile = () => {
-  return <div>Ciao</div>;
-};
+import { Row } from "react-bootstrap"
+import { Col } from "react-bootstrap"
+import Container  from "react-bootstrap/Container"
+import Jumbotron from "./Jumbotron"
+import ForYou from "./ForYou"
+import Attività from "./Attività"
+import Analisi from "./Analisi"
+import Formazione from "./Formazione"
+import Interessi from "./Interessi"
 
-export default Profile;
+const Profile = () =>{
+    return (
+    <Container>
+    <Row>
+    <Col>
+    <Jumbotron />
+    <ForYou/>
+    <Analisi />
+    <Attività />
+   <Formazione /> 
+    <Interessi /> 
+    </Col>
+    <Col></Col>
+    
+    </Row>
+    </Container>)
+}
+
+export default Profile

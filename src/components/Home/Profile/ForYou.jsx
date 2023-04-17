@@ -1,5 +1,5 @@
-const ForYou = () => {
-  return <div>Ciao</div>;
-};
+const ForYou = ()=>{
+    return (<h1>ciao</h1>)
+}
 
-export default ForYou;
+export default ForYou

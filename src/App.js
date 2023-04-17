@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import "../node_modules/bootstrap/dist/css/";
+import Container from "react-bootstrap/Container";
+import { Col, Navbar, Row } from "react-bootstrap";
+import { Footer } from "react-bootstrap/lib/Modal";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Container fluid>
+          <Row>
+            <Col>
+              <Navbar></Navbar>
+            </Col>
+          </Row>
+          <Routes>
+            <Row>
+              <Col>
+                <Route path="/me" element={<Profile />}></Route>
+                <Route path="/" element={<Home />}></Route>
+              </Col>
+            </Row>
+          </Routes>
+          <Row>
+            <Col>
+              <Footer></Footer>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </BrowserRouter>
   );
 }
 

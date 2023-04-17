@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import "../node_modules/bootstrap/dist/css/";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import { Col, Navbar, Row } from "react-bootstrap";
 import { Footer } from "react-bootstrap/lib/Modal";

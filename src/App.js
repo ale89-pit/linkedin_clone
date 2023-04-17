@@ -6,6 +6,7 @@ import { Col, Navbar, Row } from "react-bootstrap";
 // import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
+import Analisi from "./components/Home/Profile/Analisi";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Row>
             <Col>
               <NavBar />
+              <Analisi />
             </Col>
           </Row>
           {/* <Routes>

@@ -1,31 +1,27 @@
-.App {
-  text-align: center;
+.carousel-control-next,
+.carousel-control-prev {
+  filter: brightness(0);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#jubo-Card {
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#sizeImgJumbo {
+  width: 100%;
+  height: 200px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.imgJumboRoundend {
+  transform: translateX(10%) !important;
+  transform: translateY(-100%) !important;
 }
 
-.App-link {
-  color: #61dafb;
+.fontsizeButtonJumbo {
+  font-size: 0.7em !important;
 }
 
 @keyframes App-logo-spin {
@@ -58,4 +54,7 @@
 #language {
   width: 100%;
   border-radius: 6px;
+}
+#backgroudJumboDiv {
+  background-color: #DCE6F1;
 }

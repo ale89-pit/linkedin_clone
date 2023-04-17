@@ -1,15 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
-import { Col, Navbar, Row } from "react-bootstrap";
-// import Footer from "./components/Footer";
+import { Col, Row } from "react-bootstrap";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import Profile from "./components/Home/Profile/Profile";
+import Home from "./components/Home/Home";
+import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
-
-
-
 function App() {
   return (
     <BrowserRouter>
@@ -21,14 +18,14 @@ function App() {
               <NavBar />
             </Col>
           </Row>
-          {/* <Routes>
-            <Row>
-              <Col>
+          <Row>
+            <Col>
+              <Routes>
                 <Route path="/me" element={<Profile />}></Route>
                 <Route path="/" element={<Home />}></Route>
-              </Col>
-            </Row>
-          </Routes> */}
+              </Routes>
+            </Col>
+          </Row>
           <Row>
             <Col>
               {/* <Footer></Footer> */}

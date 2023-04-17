@@ -1,33 +1,33 @@
 const API_URL_PROFILES = "https://striveschool-api.herokuapp.com/api/profile/";
 export const GET_PROFILES = "GET_PROFILES";
 export const GET_ALLPROFILES = "GET_ALLPROFILES";
-const team = {
-  gabriele: {
+const team = [
+  {
     userName: "Gabriele",
     password: "gabriele",
     key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNjZjRkZDE4NmE4NzAwMTQzODY3YmIiLCJpYXQiOjE2ODE3MTY0NDUsImV4cCI6MTY4MjkyNjA0NX0.oOR7DIMKZCxaZkYvBIWTwTda1oeRSWQp4XQEkS5X_Hw",
   },
-  alessiop: {
+  {
     userName: "AlessioP",
     password: "alessiop",
     key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNjZjU1NDE4NmE4NzAwMTQzODY3YmMiLCJpYXQiOjE2ODE3MTY1NjQsImV4cCI6MTY4MjkyNjE2NH0.L5-SuknkVHJgea3WZ5Vy9ITPkNgEyTWCd3PUBLuJjSk",
   },
-  alessiof: {
+  {
     userName: "AlessioF",
     password: "alessiof",
     key: "chiave Alessio F",
   },
-  davide: {
+  {
     userName: "Davide",
     password: "davide",
     key: "chiave Davide",
   },
-  federico: {
+  {
     userName: "Federico",
     password: "federico",
     key: "chiave Federico",
   },
-};
+];
 
 export const profileThunk = (user) => {
   return async (dispatch, getState) => {
@@ -35,7 +35,7 @@ export const profileThunk = (user) => {
       const response = await fetch(API_URL_PROFILES + "me", {
         method: "GET",
         headers: {
-          Authorization: "Bearer " + team.alessiop.key,
+          Authorization: "Bearer " + team.find((u) => u.userName === user).key,
         },
       });
       if (response.ok) {

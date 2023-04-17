@@ -5,7 +5,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(profileThunk());
+    dispatch(profileThunk("Gabriele"));
   };
 
   const handleAll = () => {

@@ -12,7 +12,7 @@ const Profile = () =>{
     return (
     <Container>
     <Row>
-    <Col>
+    <Col xs={8} >
     <Jumbotron />
     <ForYou/>
     <Analisi />
@@ -20,7 +20,7 @@ const Profile = () =>{
    <Formazione /> 
     <Interessi /> 
     </Col>
-    <Col></Col>
+    <Col xs={4}></Col>
     
     </Row>
     </Container>)

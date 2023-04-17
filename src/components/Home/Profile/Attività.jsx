@@ -1,5 +1,5 @@
 const Attività = () => {
-  return <div>Ciao</div>;
+  return( <div>Ciao</div>);
 };
 
 export default Attività;

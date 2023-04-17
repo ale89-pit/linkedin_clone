@@ -1,5 +1,5 @@
 const homeState = {
-  data: [],
+  content: [],
 };
 export const homeReducer = (state = homeState, action) => {
   switch (action.type) {

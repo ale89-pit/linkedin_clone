@@ -2,7 +2,7 @@ import { Button, Card } from "react-bootstrap";
 
 const Jumbotron = () => {
   return(
-  <Card className="w-100 positon-relative" id="jumbo-Card">
+  <Card className="w-100 positon-relative mb-2" id="jumbo-Card">
   <Card.Img variant="top" id="sizeImgJumbo" src="http://placekitten.com/500/500" />
   <Card.Body className="d-flex justify-content-between">
   <img className="rounded-circle position-absolute imgJumboRoundend

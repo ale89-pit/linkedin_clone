@@ -7,7 +7,7 @@ body {
 }
 .carousel-control-next,
 .carousel-control-prev {
-  filter: brightness(0);
+  display: none;
 }
 
 #jubo-Card {

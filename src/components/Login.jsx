@@ -20,7 +20,7 @@ const Login = () => {
   const checkLogin = () => {
     const userCondition =
       reduxUser.username ===
-      team.find((u) => u.userName === reduxUser.username).userName;
+      team.find((u) => u.userName === reduxUser.username)?.userName;
 
     if (userCondition) {
       const passCondition =

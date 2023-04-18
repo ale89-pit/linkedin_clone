@@ -17,7 +17,7 @@ const Profile = () =>{
     <ForYou/>
     <Analisi />
     <Attività />
-   <Formazione /> 
+    <Formazione /> 
     <Interessi /> 
     </Col>
     <Col xs={4}></Col>

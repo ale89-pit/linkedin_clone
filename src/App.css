@@ -68,3 +68,39 @@ body {
 #backgroudJumboDiv {
   background-color: #dce6f1;
 }
+
+.ButtonAttività {
+  width: 10em;
+  font-weight: bold;
+  border-radius: 6em;
+}
+
+.ButtonFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 1em;
+}
+
+
+.nameAttivitap {
+  font-size: 0.8em;
+}
+
+h5,
+h6 {
+  font-weight: bold;
+}
+
+.ButtonRisorse {
+  border: none;
+  border-radius: 3px;
+}
+
+.ButtonMostraRisorse {
+  height: 2em;
+  width: 100%;
+  border: 1px solid;
+  background-color: #ffffff;
+}

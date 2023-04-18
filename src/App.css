@@ -7,7 +7,6 @@
   width: 100%;
   height: 100%;
   max-height: 200px;
-
 }
 
 #sizeImgJumbo {
@@ -60,5 +59,14 @@
 }
 
 #backgroudJumboDiv {
-  background-color: #DCE6F1;
+  background-color: #dce6f1;
+}
+
+#dropdownNavbar {
+  padding: 0px !important;
+  border: 0;
+}
+#dropdownNavbar2 {
+  padding: 0px !important;
+  border: 0;
 }

@@ -5,18 +5,29 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Row from "react-bootstrap/Row";
+import { useState } from "react";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Collapse from "react-bootstrap/Collapse";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
+  const user = useSelector((state) => state.profile.content);
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#">
+        <Link to={"/"} className="me-2">
           <img
             src="https://icon2.cleanpng.com/20180320/rbe/kisspng-linkedin-computer-icons-social-media-professional-png-linkedin-transparent-5ab1766dcafc38.5216273615215796298314.jpg"
             height={35}
             alt=""
           />
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -36,7 +47,10 @@ const NavBar = () => {
                 </Form>
               </Col>
               <Col className="d-flex">
-                <Nav.Link href="#action1" className="d-flex flex-column">
+                <Link
+                  to={"/"}
+                  className="text-decoration-none my-2 mx-2 text-dark d-flex flex-column"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height={20}
@@ -45,7 +59,7 @@ const NavBar = () => {
                     <path d="M543.8 287.6c17 0 32-14 32-32.1c1-9-3-17-11-24L512 185V64c0-17.7-14.3-32-32-32H448c-17.7 0-32 14.3-32 32v36.7L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24c0 18 14 32.1 32 32.1h32v69.7c-.1 .9-.1 1.8-.1 2.8V472c0 22.1 17.9 40 40 40h16c1.2 0 2.4-.1 3.6-.2c1.5 .1 3 .2 4.5 .2H160h24c22.1 0 40-17.9 40-40V448 384c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v64 24c0 22.1 17.9 40 40 40h24 32.5c1.4 0 2.8 0 4.2-.1c1.1 .1 2.2 .1 3.3 .1h16c22.1 0 40-17.9 40-40V455.8c.3-2.6 .5-5.3 .5-8.1l-.7-160.2h32z" />
                   </svg>
                   Home
-                </Nav.Link>
+                </Link>
                 <Nav.Link href="#action2" className="d-flex flex-column">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -86,30 +100,129 @@ const NavBar = () => {
                   </svg>
                   Notifiche
                 </Nav.Link>
-                <NavDropdown title="Tu" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
-                </NavDropdown>
+                <div className="mx-2">
+                  <img src={user.image} height={20} alt="1" />
+                  <DropdownButton
+                    drop="down"
+                    variant="transparent"
+                    title="Tu"
+                    id="dropdownNavbar"
+                  >
+                    <Dropdown.Item eventKey="1">
+                      <Row>
+                        <Col>
+                          <img src={user.image} height={40} alt="" />
+                        </Col>
+                        <Col>
+                          <h4>
+                            {user.name} {user.surname}
+                          </h4>
+                        </Col>
+                      </Row>
+                      <Button className="w-100 my-2">Visualizza profilo</Button>
+                    </Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item eventKey="2">
+                      <h5>Account</h5>
+                    </Dropdown.Item>
+                    <Dropdown.Item eventKey="2">
+                      Prova Premium gratis
+                    </Dropdown.Item>
+                    <Dropdown.Item eventKey="3">
+                      Impostazioni e privacy
+                    </Dropdown.Item>
+                    <Dropdown.Item eventKey="3">Guida</Dropdown.Item>
+                    <Dropdown.Item eventKey="3">Lingua</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item eventKey="2">
+                      <h5>Gestisci</h5>
+                    </Dropdown.Item>
+                    <Dropdown.Item eventKey="4">Post e attività</Dropdown.Item>
+                    <Dropdown.Item eventKey="4">
+                      Account per la pubblicazione di offer...
+                    </Dropdown.Item>
+                    <Dropdown.Item eventKey="4">Esci</Dropdown.Item>
+                  </DropdownButton>
+                </div>
                 <div className="vr" />
-                <NavDropdown
-                  title="Per le aziende"
-                  id="navbarScrollingDropdown"
-                >
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
-                </NavDropdown>
+                <div className="mb-2 text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height={20}
+                    viewBox="0 0 512 512"
+                    id="dropdownNavbar2"
+                  >
+                    <path d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z" />
+                  </svg>
+                  <DropdownButton
+                    drop="down-center"
+                    variant="transparent"
+                    title="Per le aziende"
+                    className=""
+                  >
+                    <Container>
+                      <h5>Per le aziende</h5>
+                      <Card className="mb-2">
+                        <Card.Header>
+                          Scopri altri prodotti Linkedin
+                        </Card.Header>
+                        <Card.Body>
+                          <Card.Text>
+                            <i class="fad fa-play">Learning</i>
+                            <i class="far fa-chart-bar">Insights</i>
+                            <i class="fas fa-clipboard">
+                              Pubblica un'offerta di lavoro
+                            </i>
+
+                            <i class="fas fa-compass">Trova lead</i>
+                            <i class="fas fa-users">Gruppi</i>
+                            <i class="fad fa-check-double">
+                              Marketplace dei servizi
+                            </i>
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                      <Card>
+                        <Card.Header>
+                          Assistenza alle aziende di Linkedin
+                        </Card.Header>
+                        <Card.Body>
+                          <Card.Text>
+                            <b>Talent Solutions</b>
+                            <br />
+                            Trova, attrai e assumi
+                          </Card.Text>
+                          <Card.Text>
+                            <b>Sales Solutions</b>
+                            <br />
+                            Sblocca nuove opportunità di vendita
+                          </Card.Text>
+                          <Card.Text>
+                            <b>Pubblica offerta di lavoro gratuita</b>
+                            <br />
+                            Raggiungi i migliori candidati con la tua offerta di
+                            lavoro
+                          </Card.Text>
+                          <Card.Text>
+                            <b>Marketing Solutions</b>
+                            <br />
+                            Acquisisci clienti e fai crescere la tua azienda
+                          </Card.Text>
+                          <Card.Text>
+                            <b>Learning Solutions Solutions</b>
+                            <br />
+                            Promuovi l'acquisizione di competenze nella tua
+                            organizzazione
+                          </Card.Text>
+                          <hr />
+                          <Card.Text>
+                            <b>Crea una pagina aziendale +</b>
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Container>
+                  </DropdownButton>
+                </div>
               </Col>
             </Row>
           </Nav>

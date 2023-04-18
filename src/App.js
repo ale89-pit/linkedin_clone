@@ -9,7 +9,6 @@ import Analisi from "./components/Home/Profile/Analisi";
 
 import Profile from "./components/Home/Profile/Profile";
 import Home from "./components/Home/Home";
-import Navbar from "./components/NavBar";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 function App() {

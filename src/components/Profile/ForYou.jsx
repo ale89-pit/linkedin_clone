@@ -12,11 +12,11 @@ const ForYou = () => {
   };
 
   return (
-    <div className="border rounded p-3">
+    <div className="border rounded p-3 whiteBg">
       <div className="mb-3">
         <h3 className="mb-0">Consigliato per te</h3>
         <span>
-          <i class="fas fa-eye me-2"></i>Solo per te
+          <i className="fas fa-eye me-2"></i>Solo per te
         </span>
         <div>
           <h5>Principiante</h5>

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Col } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -14,9 +15,12 @@ import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import styles from "../App.css";
 
 const NavBar = () => {
   const user = useSelector((state) => state.profile.content);
+
+  // const isLogged = useSelector((state) => state.login.isLogged);
 
   return (
     <Navbar bg="light" expand="lg">

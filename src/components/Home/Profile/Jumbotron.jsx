@@ -6,8 +6,6 @@ import { useEffect } from "react";
 
 const Jumbotron = () => {
     const dispatch = useDispatch()
-    
-    
     useEffect(()=>{
         dispatch(profileThunk("AlessioP"))
     },[])

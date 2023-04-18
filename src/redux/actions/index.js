@@ -1,6 +1,7 @@
 const API_URL_PROFILES = "https://striveschool-api.herokuapp.com/api/profile/";
 export const GET_PROFILES = "GET_PROFILES";
 export const GET_ALLPROFILES = "GET_ALLPROFILES";
+export const GET_ALLEXPERIENCES = "GET_ALLEXPERIENCES";
 const team = [
   {
     userName: "Gabriele",
@@ -54,13 +55,13 @@ export const profileThunk = (user) => {
   };
 };
 
-export const allProfilesThunk = () => {
+export const allProfilesThunk = (user) => {
   return async (dispatch, getState) => {
     try {
       const response = await fetch(API_URL_PROFILES, {
         method: "GET",
         headers: {
-          Authorization: "Bearer " + team.alessiop.key,
+          Authorization: "Bearer " + team.find((u) => u.userName === user).key,
         },
       });
       if (response.ok) {
@@ -78,3 +79,28 @@ export const allProfilesThunk = () => {
     }
   };
 };
+
+export const allExperiences = (user, id) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await fetch(API_URL_PROFILES + id + '/experiences', {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + team.find((u) => u.userName === user).key,
+        },
+      });
+      if (response.ok) {
+        const experiences = await response.json();
+        console.log(experiences, getState)
+        dispatch({
+          type: GET_ALLEXPERIENCES,
+          payload: experiences,
+        });
+      } else {
+        alert("Error fetching results");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}

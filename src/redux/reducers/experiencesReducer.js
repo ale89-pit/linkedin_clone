@@ -1,7 +1,7 @@
 import { GET_ALLEXPERIENCES } from "../actions";
 
 const InitialState = {
-  content: {},
+  content: [],
   loadingExperience: true,
 };
 

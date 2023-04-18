@@ -8,6 +8,8 @@ import Profile from "./components/Home/Profile/Profile";
 import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+
+
 function App() {
   return (
     <BrowserRouter>

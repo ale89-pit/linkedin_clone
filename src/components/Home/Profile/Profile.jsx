@@ -7,6 +7,7 @@ import Attività from "./Attività"
 import Analisi from "./Analisi"
 import Formazione from "./Formazione"
 import Interessi from "./Interessi"
+import Risorse from "./Risorse"
 
 const Profile = () =>{
     return (
@@ -16,6 +17,7 @@ const Profile = () =>{
     <Jumbotron />
     <ForYou/>
     <Analisi />
+    <Risorse />
     <Attività />
     <Formazione /> 
     <Interessi /> 

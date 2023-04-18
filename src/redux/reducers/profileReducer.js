@@ -1,7 +1,9 @@
 import { GET_ALLPROFILES, GET_PROFILES } from "../actions";
 
 const profileState = {
-  content: {},
+  content: {
+    loading: false,
+  },
   allProfiles: [],
 };
 export const profileReducer = (state = profileState, action) => {
@@ -10,6 +12,7 @@ export const profileReducer = (state = profileState, action) => {
       return {
         ...state,
         content: action.payload,
+        loading: true,
       };
     case GET_ALLPROFILES:
       return {

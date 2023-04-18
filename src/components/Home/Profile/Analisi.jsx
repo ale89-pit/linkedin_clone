@@ -20,4 +20,4 @@ const Analisi = () => {
     )
 }
 
-export default Analisi
+export default Analisi;

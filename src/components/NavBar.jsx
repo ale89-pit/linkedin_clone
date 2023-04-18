@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Col } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -5,8 +6,12 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Row from "react-bootstrap/Row";
+import { useSelector } from "react-redux";
+import styles from "../App.css";
 
 const NavBar = () => {
+  const isLogged = useSelector((state) => state.login.isLogged);
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>

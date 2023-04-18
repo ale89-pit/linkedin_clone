@@ -1,7 +1,10 @@
 const API_URL_PROFILES = "https://striveschool-api.herokuapp.com/api/profile/";
 export const GET_PROFILES = "GET_PROFILES";
 export const GET_ALLPROFILES = "GET_ALLPROFILES";
-const team = [
+export const LOGIN = "LOGIN";
+export const GET_USER = "GET_USER";
+export const GET_PASSWORD = "GET_PASSWORD";
+export const team = [
   {
     userName: "Gabriele",
     password: "gabriele",
@@ -15,12 +18,12 @@ const team = [
   {
     userName: "AlessioF",
     password: "alessiof",
-    key: "chiave Alessio F",
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNlOGU5M2ZjYTEyOTAwMTQ0MGMwNmEiLCJpYXQiOjE2ODE4MjEzMzIsImV4cCI6MTY4MzAzMDkzMn0.WjvDPw2s5hD41eE6Eind4zQACmkgk8_E_d_uQqXhjUk",
   },
   {
     userName: "Davide",
     password: "davide",
-    key: "chiave Davide",
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNjZjYzZTE4NmE4NzAwMTQzODY3YmQiLCJpYXQiOjE2ODE3MTY3OTgsImV4cCI6MTY4MjkyNjM5OH0.bSwIRR4GF21LG6XvgnbmmW_T7fLNOrWmMJCGxDVIYZE",
   },
   {
     userName: "Federico",
@@ -28,6 +31,26 @@ const team = [
     key: "chiave Federico",
   },
 ];
+
+export const handleLogin = () => {
+  return {
+    type: LOGIN,
+    payload: true,
+  };
+};
+
+export const handleUser = (paylo) => {
+  return {
+    type: GET_USER,
+    payload: paylo,
+  };
+};
+export const handlePassword = (paylo) => {
+  return {
+    type: GET_PASSWORD,
+    payload: paylo,
+  };
+};
 
 export const profileThunk = (user) => {
   return async (dispatch, getState) => {

@@ -1,3 +1,10 @@
+html,
+body {
+  background-color: #f3f2ef !important;
+}
+.whiteBg {
+  background-color: white !important;
+}
 .carousel-control-next,
 .carousel-control-prev {
   filter: brightness(0);

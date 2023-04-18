@@ -20,7 +20,7 @@ export const team = [
   {
     userName: "AlessioF",
     password: "alessiof",
-    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNlOGU5M2ZjYTEyOTAwMTQ0MGMwNmEiLCJpYXQiOjE2ODE4MjEzMzIsImV4cCI6MTY4MzAzMDkzMn0.WjvDPw2s5hD41eE6Eind4zQACmkgk8_E_d_uQqXhjUk",
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNlYWNlY2ZjYTEyOTAwMTQ0MGMwZjEiLCJpYXQiOjE2ODE4MjkxMDAsImV4cCI6MTY4MzAzODcwMH0.DZvdaOSboeqiJ7sAs-9zvB1PtS14FVDZMiH53fK-i1s",
   },
   {
     userName: "Davide",
@@ -30,7 +30,7 @@ export const team = [
   {
     userName: "Federico",
     password: "federico",
-    key: "chiave Federico",
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNlYWRhMmZjYTEyOTAwMTQ0MGMwZjQiLCJpYXQiOjE2ODE4MjkyODIsImV4cCI6MTY4MzAzODg4Mn0._I-QvA_DTCaHtHLrPkNPHWf8KUJxyngghrMwxZ2NIog",
   },
 ];
 

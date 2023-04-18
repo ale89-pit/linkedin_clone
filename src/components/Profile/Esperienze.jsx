@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
-import { allExperiences } from "../../../redux/actions";
+import { allExperiences } from "../../redux/actions";
 import { Spinner } from "react-bootstrap/esm";
 
 const Esperienze = () => {

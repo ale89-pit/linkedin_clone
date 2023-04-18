@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { allProfilesThunk, profileThunk } from "../../redux/actions";
-
+import { Col } from "react-bootstrap";
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -14,8 +14,9 @@ const Home = () => {
 
   return (
     <div>
-      <button onClick={handleClick}>GET PROFILE</button>
-      <button onClick={handleAll}>GET ALL</button>
+      <Col xs={2}>ciao</Col>
+      <Col xs={4}>ciao</Col>
+      <Col xs={2}>ciao</Col>
     </div>
   );
 };

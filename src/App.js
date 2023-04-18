@@ -4,9 +4,6 @@ import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Analisi from "./components/Home/Profile/Analisi";
-
-
 import Profile from "./components/Home/Profile/Profile";
 import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar";
@@ -15,12 +12,10 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Footer />
         <Container fluid>
           <Row>
             <Col>
               <NavBar />
-              <Analisi />
             </Col>
           </Row>
           <Row>
@@ -33,7 +28,7 @@ function App() {
           </Row>
           <Row>
             <Col>
-              {/* <Footer></Footer> */}
+              <Footer />
             </Col>
           </Row>
         </Container>

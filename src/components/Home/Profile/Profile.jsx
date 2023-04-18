@@ -7,6 +7,7 @@ import Attività from "./Attività"
 import Analisi from "./Analisi"
 import Formazione from "./Formazione"
 import Interessi from "./Interessi"
+import Esperienze from "./Esperienze"
 
 const Profile = () =>{
     return (
@@ -17,6 +18,7 @@ const Profile = () =>{
     <ForYou/>
     <Analisi />
     <Attività />
+    <Esperienze/>
     <Formazione /> 
     <Interessi /> 
     </Col>

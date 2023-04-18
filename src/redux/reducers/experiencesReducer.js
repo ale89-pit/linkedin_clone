@@ -2,6 +2,7 @@ import { GET_ALLEXPERIENCES } from "../actions";
 
 const InitialState = {
   content: {},
+  loadingExperience: true,
 };
 
 export const experiencesReducers = (state = InitialState, action) => {
@@ -10,6 +11,7 @@ export const experiencesReducers = (state = InitialState, action) => {
       return {
         ...state,
         content: action.payload,
+        loadingExperience: false,
       };
     default:
       return state;

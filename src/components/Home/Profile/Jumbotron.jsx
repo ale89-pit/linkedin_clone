@@ -5,10 +5,7 @@ import { Spinner } from "react-bootstrap/esm";
 import { useEffect } from "react";
 
 const Jumbotron = () => {
-    const dispatch = useDispatch()
-    useEffect(()=>{
-        dispatch(profileThunk("AlessioP"))
-    },[])
+   
     const user = useSelector(state => state.profile.content)
     const loading = useSelector(state => state.profile.loading)
   return(

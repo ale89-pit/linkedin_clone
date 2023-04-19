@@ -2,8 +2,8 @@ import { Col, Row } from "react-bootstrap";
 
 const Analisi = () => {
   return (
-    <div className="whiteBg">
-      <h2>Analisi</h2>
+    <div className="whiteBg border rounded mt-2 p-3">
+      <h5 className="mt-3">Analisi</h5>
       <p>
         <i className="fas fa-eye"></i>Solo per te
       </p>

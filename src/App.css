@@ -80,7 +80,6 @@ body {
 .ButtonAttività {
   width: 10em;
   font-weight: bold;
-  border-radius: 6em;
 }
 
 .ButtonFlex {
@@ -106,8 +105,7 @@ h6 {
 }
 
 .ButtonMostraRisorse {
-  height: 2em;
+  height: 3em;
   width: 100%;
-  border: 1px solid;
   background-color: #ffffff;
 }

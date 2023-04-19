@@ -25,12 +25,12 @@ const Home = () => {
       <Container>
         <Row>
           <Col xs={12} lg={3} className="offset-1">
-            ciao
+            <MiniProfile />
           </Col>
           <Col xs={12} lg={4}>
             <MakePost />
             <hr />
-            {allPosts[0] && <ProfilePost user={user} />}
+
             {allPosts[0] ? (
               allPosts[0].map((el, i) => (
                 <ShowPost key={el._id + i} post={el} />
@@ -41,9 +41,7 @@ const Home = () => {
               </div>
             )}
           </Col>
-          <Col xs={12} lg={3}>
-            <MiniProfile />
-          </Col>
+          <Col xs={12} lg={3} className="bg-light"></Col>
         </Row>
       </Container>
     </div>

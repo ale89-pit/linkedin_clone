@@ -9,7 +9,7 @@ export const homeReducer = (state = homeState, action) => {
     case GET_POSTS:
       return {
         ...state,
-        allPosts: [action.payload],
+        allPosts: [action.payload.reverse()],
       };
     case ADD_POST_TEXT:
       return {

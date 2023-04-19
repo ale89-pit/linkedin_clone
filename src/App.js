@@ -20,20 +20,27 @@ function App() {
         <Container fluid>
           <Row>
             <Col>
-              <NavBar />
+              <header>
+                <NavBar />
+              </header>
             </Col>
           </Row>
-          <div className="p-3">
-            <Routes>
-              <Route path="/me" element={<Profile />}></Route>
-              <Route path="/" element={<Login />}></Route>
-              <Route path="/home" element={<Home />}></Route>
-            </Routes>
-          </div>
-
           <Row>
             <Col>
-              <Footer />
+              <div className="p-3">
+                <Routes>
+                  <Route path="/me" element={<Profile />}></Route>
+                  <Route path="/" element={<Login />}></Route>
+                  <Route path="/home" element={<Home />}></Route>
+                </Routes>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <footer>
+                <Footer />
+              </footer>
             </Col>
           </Row>
         </Container>

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import React from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
-import ModalMakePost from "./ModalMakePost";
+import ModalModifyPost from "./ModalModifyPost";
 
 const ShowPost = ({ post }) => {
   const user = useSelector((state) => state.login.user.username);
@@ -51,12 +51,12 @@ const ShowPost = ({ post }) => {
               style={customStyles}
               contentLabel="Example Modal"
             >
-              <ModalMakePost user={user} userImg={userImg} />
+              <ModalModifyPost user={user} userImg={userImg} post={post} />
             </Modal>
           </div>
         )}
       </div>
-      <p>{post.text}</p>
+      <p className="lh-1">{post.text}</p>
       <small className="align-self-end text-bg-info rounded-pill p-1">
         {post.createdAt.slice(0, 10)}
       </small>

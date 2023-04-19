@@ -3,23 +3,59 @@ import { sendChange } from "../../redux/actions/HomePost";
 import { useSelector, useDispatch } from "react-redux";
 import { API_POSTS } from "../../redux/actions/HomePost";
 import { team } from "../../redux/actions";
+import { useEffect, useState } from "react";
 
-const ModalMakePost = ({ user, userImg, post }) => {
-  const textPost = useSelector((state) => state.home.text);
+const ModalModifyPost = ({ user, userImg, post }) => {
   const dispatch = useDispatch();
+  const [textValue, setTextValue] = useState("");
 
-  const postAPost = async (user) => {
+  //   const getAPost = async (user) => {
+  //     try {
+  //       const response = await fetch(API_POSTS + `${post._id}`, {
+  //         method: "GET",
+  //         headers: {
+  //           Authorization: "Bearer " + team.find((u) => u.userName === user).key,
+  //         },
+  //       });
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         // setTextValue(data.text);
+  //         // dispatch(sendChange(data))
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+
+  useEffect(() => {
+    setTextValue(post.text);
+    dispatch(sendChange(textValue));
+  }, []);
+
+  const putAPost = async (user) => {
     try {
-      const response = await fetch(API_POSTS, {
-        method: "POST",
+      const response = await fetch(API_POSTS + `${post._id}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
-
           Authorization: "Bearer " + team.find((u) => u.userName === user).key,
         },
-        body: JSON.stringify({ text: textPost }),
+        body: JSON.stringify({ text: textValue }),
       });
       return response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deletePost = async (user) => {
+    try {
+      const response = await fetch(API_POSTS + `${post._id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + team.find((u) => u.userName === user).key,
+        },
+      });
     } catch (error) {
       console.log(error);
     }
@@ -39,18 +75,18 @@ const ModalMakePost = ({ user, userImg, post }) => {
       <Form
         onSubmit={(e) => {
           e.preventDefault();
-          postAPost(user);
+          putAPost(user);
         }}
       >
         <Form.Group
           onChange={(e) => {
             dispatch(sendChange(e.target.value));
-            console.log(textPost);
+            setTextValue(e.target.value);
           }}
           className="mb-3"
           controlId="exampleForm.ControlTextarea1"
         >
-          <Form.Control as="textarea" rows={3} />
+          <Form.Control value={textValue} as="textarea" rows={3} />
         </Form.Group>
 
         <div className="d-flex">
@@ -68,8 +104,17 @@ const ModalMakePost = ({ user, userImg, post }) => {
           </button>
         </div>
         <div className="d-flex justify-content-end">
-          <button type="submit" className="btn btn-secondary">
-            Pubblica
+          <button type="submit" className="btn btn-secondary me-2">
+            Modifica
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              deletePost(user);
+            }}
+            className="btn btn-danger"
+          >
+            <i className="fas fa-trash"></i>
           </button>
         </div>
       </Form>
@@ -77,4 +122,4 @@ const ModalMakePost = ({ user, userImg, post }) => {
   );
 };
 
-export default ModalMakePost;
+export default ModalModifyPost;

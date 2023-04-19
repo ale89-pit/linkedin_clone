@@ -26,21 +26,22 @@ const Home = () => {
         <Row>
           <Col xs={12} lg={3} className="offset-1">
             ciao
-            <Col xs={12} lg={4}>
-              <MakePost />
-              <hr />
-              {allPosts[0] && <ProfilePost user={user} />}
-              {allPosts[0] ? (
-                allPosts[0].map((el, i) => (
-                  <ShowPost key={el._id + i} post={el} />
-                ))
-              ) : (
-                <Spinner></Spinner>
-              )}
-            </Col>
           </Col>
-
-          <Col xs={3} className="offset-1">
+          <Col xs={12} lg={4}>
+            <MakePost />
+            <hr />
+            {allPosts[0] && <ProfilePost user={user} />}
+            {allPosts[0] ? (
+              allPosts[0].map((el, i) => (
+                <ShowPost key={el._id + i} post={el} />
+              ))
+            ) : (
+              <div className="d-flex justify-content-center my-4">
+                <Spinner></Spinner>
+              </div>
+            )}
+          </Col>
+          <Col xs={12} lg={3}>
             <MiniProfile />
           </Col>
         </Row>

@@ -12,9 +12,7 @@ import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import styles from "../App.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+
 import Modal from "react-bootstrap/Modal";
 
 const NavBar = () => {

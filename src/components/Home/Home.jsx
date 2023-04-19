@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { postsThunk } from "../../redux/actions/HomePost";
 import { Spinner } from "react-bootstrap";
 import ProfilePost from "./ProfilePost";
+import MiniProfile from "./MiniProfile";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -25,21 +26,22 @@ const Home = () => {
         <Row>
           <Col xs={12} lg={3} className="offset-1">
             ciao
+            <Col xs={12} lg={4}>
+              <MakePost />
+              <hr />
+              {allPosts[0] && <ProfilePost user={user} />}
+              {allPosts[0] ? (
+                allPosts[0].map((el, i) => (
+                  <ShowPost key={el._id + i} post={el} />
+                ))
+              ) : (
+                <Spinner></Spinner>
+              )}
+            </Col>
           </Col>
-          <Col xs={12} lg={4}>
-            <MakePost />
-            <hr />
-            {allPosts[0] && <ProfilePost user={user} />}
-            {allPosts[0] ? (
-              allPosts[0].map((el, i) => (
-                <ShowPost key={el._id + i} post={el} />
-              ))
-            ) : (
-              <Spinner></Spinner>
-            )}
-          </Col>
-          <Col xs={12} lg={3}>
-            ciao
+
+          <Col xs={3} className="offset-1">
+            <MiniProfile />
           </Col>
         </Row>
       </Container>

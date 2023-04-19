@@ -4,15 +4,8 @@ export const GET_ALLPROFILES = "GET_ALLPROFILES";
 //Action per tutte le esperienze
 export const GET_ALLEXPERIENCES = "GET_ALLEXPERIENCES";
 //action per post experienzw
-export const POST_NEW_EXPE = "POST_NEW_EXPE"
-//Action Form New Experience
-export const ADD_ROLE = "ADD_ROLE"
-export const ADD_COMPANY = "ADD_COMPANY"
-export const ADD_DESCRIPTION = "ADD_DESCRIPTION"
-export const ADD_START_DATE = "ADD_START_DATE"
-export const ADD_END_DATE = "ADD_END_DATE"
-export const ADD_AREA = "ADD_AREA"
-//Fine action form
+export const POST_NEW_EXPE = "POST_NEW_EXPE";
+
 export const LOGIN = "LOGIN";
 export const GET_USER = "GET_USER";
 export const GET_PASSWORD = "GET_PASSWORD";
@@ -63,43 +56,7 @@ export const handlePassword = (paylo) => {
     payload: paylo,
   };
 };
-//Fomr Experience
-export const handleNewRole = (role)=>{
-  return{
-    type:ADD_ROLE,
-    payload:role
-  }
-}
-export const handleCompany = (company)=>{
-  return{
-    type:ADD_COMPANY,
-    payload:company
-  }
-}
-export const handleStartDate = (startDate)=>{
-  return{
-    type:ADD_START_DATE,
-    payload:startDate
-  }
-}
-export const handlleDescription = (descr)=>{
-  return{
-    type:ADD_DESCRIPTION,
-    payload:descr
-  }
-}
-export const handleEndDate = (endDate)=>{
-  return{
-    type:ADD_END_DATE,
-    payload:endDate
-  }
-}
-export const handleArea = (area)=>{
-  return{
-    type:ADD_AREA,
-    payload:area
-  }
-}
+
 export const profileThunk = (user) => {
   return async (dispatch, getState) => {
     try {
@@ -174,5 +131,3 @@ export const allExperiences = (user, id) => {
     }
   };
 };
-
-

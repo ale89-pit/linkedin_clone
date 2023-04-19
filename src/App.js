@@ -8,7 +8,7 @@ import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
-
+import ExperienceDetails from "./components/Profile/EsperienceDetails";
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
               <Route path="/me" element={<Profile />}></Route>
               <Route path="/" element={<Login />}></Route>
               <Route path="/home" element={<Home />}></Route>
+              <Route path="/experience" element={<ExperienceDetails />} />
             </Routes>
           </div>
 

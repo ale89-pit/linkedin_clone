@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import ShowPost from "./ShowPost";
+import ShowPost from "../Home/ShowPost";
 
 const ProfilePost = ({ user }) => {
   const [myPosts, setMyPosts] = useState([]);

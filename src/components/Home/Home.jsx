@@ -8,7 +8,7 @@ import ShowPost from "./ShowPost";
 import { useEffect } from "react";
 import { postsThunk } from "../../redux/actions/HomePost";
 import { Spinner } from "react-bootstrap";
-import ProfilePost from "./ProfilePost";
+import ProfilePost from "../Profile/ProfilePost";
 import MiniProfile from "./MiniProfile";
 
 const Home = () => {

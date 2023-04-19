@@ -2,21 +2,21 @@ import { Container, Row, Button, Col } from "react-bootstrap";
 
 const Attività = () => {
   return (
-    <Container className="allCards mt-2 border rounded ps-1 whiteBg">
-      <Row className=" textAttività mt-4 ms-1">
+    <Container className="mt-2 border rounded p-0 whiteBg">
+      <Row className="mt-3 p-3">
         <Col className="ButtonFlex">
-          <h5 className="">Attività</h5>
-          <Button variant="outline-primary ButtonAttività">
+          <h5>Attività</h5>
+          <Button variant="outline-primary btn rounded-pill">
             Avvia un post
           </Button>
         </Col>
 
         <p className="text-primary fw-bold mb-2"> follower </p>
         <p>ha diffuso questo post </p>
-        <button className="ButtonMostraRisorse">
+      </Row>
+        <button className="ButtonMostraRisorse border-top btn btn-light d-flex justify-content-center align-items-center">
           Mostra tutte le attività
         </button>
-      </Row>
     </Container>
   );
 };

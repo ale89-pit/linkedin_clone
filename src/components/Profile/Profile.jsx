@@ -9,6 +9,7 @@ import Formazione from "./Formazione";
 import Interessi from "./Interessi";
 import Esperienze from "./Esperienze";
 import Risorse from "./Risorse";
+import ListGroupExample from "./Rightside1";
 
 const Profile = () => {
   return (
@@ -18,13 +19,15 @@ const Profile = () => {
           <Jumbotron />
           <ForYou />
           <Analisi />
+          <Risorse />
           <Attività />
           <Esperienze />
           <Formazione />
           <Interessi />
-          <Risorse />
         </Col>
-        <Col xs={3} className="bg-light"></Col>
+        <Col xs={3} className="bg-light">
+        <ListGroupExample />
+        </Col>
       </Row>
     </Container>
   );

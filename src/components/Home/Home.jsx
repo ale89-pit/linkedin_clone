@@ -3,6 +3,8 @@ import { allProfilesThunk, profileThunk } from "../../redux/actions";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import MiniProfile from "./MiniProfile";
+
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -19,7 +21,7 @@ const Home = () => {
       <Container>
         <Row>
           <Col xs={3} className="offset-1">
-            ciao
+            <MiniProfile />
           </Col>
           <Col xs={4}>ciao</Col>
           <Col xs={3}>ciao</Col>

@@ -76,6 +76,7 @@ const ModalModifyPost = ({ user, userImg, post }) => {
         onSubmit={(e) => {
           e.preventDefault();
           putAPost(user);
+          window.location.reload();
         }}
       >
         <Form.Group
@@ -111,6 +112,7 @@ const ModalModifyPost = ({ user, userImg, post }) => {
             onClick={(e) => {
               e.preventDefault();
               deletePost(user);
+              window.location.reload();
             }}
             className="btn btn-danger"
           >

@@ -40,6 +40,7 @@ const ModalMakePost = ({ user, userImg, post }) => {
         onSubmit={(e) => {
           e.preventDefault();
           postAPost(user);
+          window.location.reload();
         }}
       >
         <Form.Group

@@ -15,7 +15,7 @@ const Profile = () => {
   return (
     <Container>
       <Row>
-        <Col xs={7} className=" offset-1">
+        <Col xs={12} lg={7} className=" offset-1">
           <Jumbotron />
           <ForYou />
           <Analisi />
@@ -25,8 +25,8 @@ const Profile = () => {
           <Formazione />
           <Interessi />
         </Col>
-        <Col xs={3} className="bg-light">
-        <ListGroupExample />
+        <Col xs={12} lg={3} className="bg-light">
+          <ListGroupExample />
         </Col>
       </Row>
     </Container>

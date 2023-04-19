@@ -13,19 +13,19 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from "../App.css";
 
 const NavBar = () => {
   const user = useSelector((state) => state.profile.content);
-
+  const navigate = useNavigate();
   // const isLogged = useSelector((state) => state.login.isLogged);
 
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Link to={"/"} className="me-2">
+        <Link to={"/home"} className="me-2">
           <img
             src="https://icon2.cleanpng.com/20180320/rbe/kisspng-linkedin-computer-icons-social-media-professional-png-linkedin-transparent-5ab1766dcafc38.5216273615215796298314.jpg"
             height={35}
@@ -52,7 +52,7 @@ const NavBar = () => {
               </Col>
               <Col className="d-flex">
                 <Link
-                  to={"/"}
+                  to={"/home"}
                   className="text-decoration-none my-2 mx-2 text-dark d-flex flex-column"
                 >
                   <svg
@@ -107,7 +107,7 @@ const NavBar = () => {
                 <div className="mx-2">
                   <img src={user.image} height={20} alt="1" />
                   <DropdownButton
-                    drop="down"
+                    drop="start"
                     variant="transparent"
                     title="Tu"
                     id="dropdownNavbar"
@@ -123,7 +123,11 @@ const NavBar = () => {
                           </h4>
                         </Col>
                       </Row>
-                      <Button className="w-100 my-2">Visualizza profilo</Button>
+                      <Link to={"/me"}>
+                        <Button className="w-100 my-2">
+                          Visualizza profilo
+                        </Button>
+                      </Link>
                     </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item eventKey="2">

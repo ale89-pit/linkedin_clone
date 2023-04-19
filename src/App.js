@@ -8,7 +8,10 @@ import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
-
+import React from "react";
+import ReactDOM from "react-dom";
+import Modal from "react-modal";
+Modal.setAppElement("#root");
 
 function App() {
   return (

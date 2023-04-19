@@ -8,7 +8,7 @@ export const GET_USER = "GET_USER";
 export const GET_PASSWORD = "GET_PASSWORD";
 export const team = [
   {
-    userName: "Gabriele",
+    userName: "MindTheDiv",
     password: "gabriele",
     key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNjZjRkZDE4NmE4NzAwMTQzODY3YmIiLCJpYXQiOjE2ODE3MTY0NDUsImV4cCI6MTY4MjkyNjA0NX0.oOR7DIMKZCxaZkYvBIWTwTda1oeRSWQp4XQEkS5X_Hw",
   },

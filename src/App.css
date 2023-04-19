@@ -111,3 +111,11 @@ h6 {
   border: 1px solid;
   background-color: #ffffff;
 }
+
+.modalMakePost {
+  width: 80vw;
+}
+
+.longWord {
+  word-break: break-all;
+}

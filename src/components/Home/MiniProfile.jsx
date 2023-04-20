@@ -24,20 +24,27 @@ const MiniProfile = () => {
         </Card.Title>
         <Card.Text>experiense</Card.Text>
       </Card.Body>
-      <ListGroup className="list-group-flush d-none d-md-inline">
+      <ListGroup
+        id="listaJumbotronHome"
+        className="list-group-flush d-none d-md-inline"
+      >
         <ListGroup.Item action>
           <Row>
             <Col>
               Collegamenti <br />
-              Espandi la tua rete
+              <b>Espandi la tua rete</b>
             </Col>
-            <Col className="text-end">x</Col>
+            <Col xs={3} className="text-end">
+              438
+            </Col>
           </Row>
         </ListGroup.Item>
         <ListGroup.Item action>
           <Row>
             <Col>Chi ha visitato il tuo profilo?</Col>
-            <Col className="text-end">x</Col>
+            <Col xs={3} className="text-end">
+              172
+            </Col>
           </Row>
         </ListGroup.Item>
         <ListGroup.Item action>

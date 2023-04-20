@@ -44,6 +44,11 @@ const Home = () => {
           </Col>
           <Col className="d-none d-lg-block" lg={3}>
             <ShortNews />
+            <img
+              src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
+              className="w-100 my-2"
+              alt=""
+            />
             <FooterHome />
           </Col>
         </Row>

@@ -12,8 +12,7 @@ import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
-import Modal from "react-bootstrap/Modal";
+import Offcanvas from "react-bootstrap/Offcanvas";
 
 const NavBar = () => {
   const user = useSelector((state) => state.profile.content);
@@ -150,9 +149,13 @@ const NavBar = () => {
                 <Dropdown.Item>Esci</Dropdown.Item>
               </DropdownButton>
 
-              <div className="vr" />
+              <div className="vr " id="barraVerticale" />
               <div className="mb-2 text-center">
-                <Button variant="transparent" onClick={handleShow}>
+                <Button
+                  variant="transparent"
+                  className="border-0"
+                  onClick={handleShow}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height={20}
@@ -162,16 +165,15 @@ const NavBar = () => {
                     <path d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z" />
                   </svg>
                   <p className="d-none d-lg-block">
-                    <nobr>"Per la tua azienda"</nobr>
+                    <nobr>Per le aziende</nobr>
                   </p>
                 </Button>
-
-                <Modal show={show} onHide={handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Scopri altri prodotti Linkedin</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <Card className="mb-2">
+                <Offcanvas show={show} placement="end" onHide={handleClose}>
+                  <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Per le aziende</Offcanvas.Title>
+                  </Offcanvas.Header>
+                  <Offcanvas.Body>
+                    <Card className="offCanvasNavbar mb-2">
                       <Card.Header>Scopri altri prodotti Linkedin</Card.Header>
                       <Card.Body>
                         <Card.Text className="text-center">
@@ -191,7 +193,9 @@ const NavBar = () => {
                             </Col>
                             <Col xs={3}>
                               <i class="fas fa-compass"></i>
-                              <p>Pubblicizza</p>
+                              <p>
+                                <nobr>Pubblicizza</nobr>
+                              </p>
                             </Col>
                             <Col xs={3}>
                               <i class="fas fa-compass"></i>
@@ -210,7 +214,7 @@ const NavBar = () => {
                         </Card.Text>
                       </Card.Body>
                     </Card>
-                    <Card>
+                    <Card className="offCanvasNavbar">
                       <Card.Header>
                         Assistenza alle aziende di Linkedin
                       </Card.Header>
@@ -248,8 +252,8 @@ const NavBar = () => {
                         </Card.Text>
                       </Card.Body>
                     </Card>
-                  </Modal.Body>
-                </Modal>
+                  </Offcanvas.Body>
+                </Offcanvas>
               </div>
             </Col>
           </Row>

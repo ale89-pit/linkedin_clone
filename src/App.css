@@ -65,18 +65,16 @@ body {
   border-radius: 6px;
 }
 
-#backgroudJumboDiv {
-  background-color: #dce6f1;
+.backgroudJumboDiv {
+  border: 1px solid lightgrey;
+  font-size: small;
 }
 
 #dropdownNavbar {
   padding: 0px !important;
   border: 0;
 }
-#dropdownNavbar2 {
-  padding: 0px !important;
-  border: 0;
-}
+
 .ButtonAttività {
   width: 10em;
   font-weight: bold;
@@ -127,4 +125,16 @@ h6 {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.637);
   font-size: small;
+}
+
+#listaJumbotronHome {
+  font-size: small;
+}
+
+.offCanvasNavbar {
+  font-size: small;
+}
+
+#barraVerticale {
+  height: 50px;
 }

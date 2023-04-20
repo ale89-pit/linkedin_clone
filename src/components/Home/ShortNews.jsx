@@ -43,7 +43,7 @@ const ShortNews = () => {
             </a>
           </li>
         </ul>
-        Visualizza altro
+        <p>Visualizza altro</p>
       </Container>
     </Card>
   );

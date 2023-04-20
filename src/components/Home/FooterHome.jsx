@@ -67,7 +67,14 @@ export const FooterHome = () => {
         </Col>
       </Row>
       <Row className="my-2 text-center">
-        <p className="footerQuestion">LinkedIn Corporation © 2023</p>
+        <p className="footerQuestion">
+          <img
+            src="https://logos-download.com/wp-content/uploads/2016/03/LinkedIn_Logo_2019-700x175.png"
+            alt=""
+            height={15}
+          />{" "}
+          LinkedIn Corporation © 2023
+        </p>
       </Row>
     </Container>
   );

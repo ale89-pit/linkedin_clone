@@ -8,34 +8,53 @@ const MiniProfile = () => {
   const user = useSelector((state) => state.profile.content);
 
   return (
-    <Card style={{ width: "18rem" }} className="me-2">
-      <Card.Img variant="top" height={60} src={user.image} />
-      <Card.Body>
+    <Card className="align-item-center mb-3">
+      <Card.Img variant="top" height={80} src={user.image} />
+      <img
+        className="rounded-circle text-center"
+        height={50}
+        width={50}
+        src={user.image}
+        alt="img-profile"
+        id="fotoMiniJumbotron"
+      />
+      <Card.Body className="text-center">
         <Card.Title>
           {user.name} {user.surname}
         </Card.Title>
         <Card.Text>experiense</Card.Text>
       </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item>
+      <ListGroup
+        id="listaJumbotronHome"
+        className="list-group-flush d-none d-md-inline"
+      >
+        <ListGroup.Item action>
           <Row>
             <Col>
-              <a href="#">
-                Collegamenti <br />
-                Espandi la tua rete
-              </a>
-              <p></p>
+              Collegamenti <br />
+              <b>Espandi la tua rete</b>
             </Col>
-            <Col>x</Col>
+            <Col xs={3} className="text-end">
+              438
+            </Col>
           </Row>
         </ListGroup.Item>
-        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+        <ListGroup.Item action>
+          <Row>
+            <Col>Chi ha visitato il tuo profilo?</Col>
+            <Col xs={3} className="text-end">
+              172
+            </Col>
+          </Row>
+        </ListGroup.Item>
+        <ListGroup.Item action>
+          Accedi a strumenti e informazioni in esclusiva <br />{" "}
+          <a href="#">Prova Premium gratis</a>
+        </ListGroup.Item>
+        <ListGroup.Item action>
+          <i class="fas fa-bookmark"></i> I miei elementi
+        </ListGroup.Item>
       </ListGroup>
-      <Card.Body>
-        <Card.Link href="#">Card Link</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
-      </Card.Body>
     </Card>
   );
 };

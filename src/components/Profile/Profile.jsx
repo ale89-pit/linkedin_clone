@@ -9,8 +9,8 @@ import Formazione from "./Formazione";
 import Interessi from "./Interessi";
 import Esperienze from "./Esperienze";
 import Risorse from "./Risorse";
+import Rightside1 from "./Rightside1";
 import EsperienceCard from "./EsperienceCard";
-import ListGroupExample from "./Rightside1";
 import ProfilePost from "./ProfilePost";
 import { useSelector } from "react-redux";
 
@@ -20,7 +20,7 @@ const Profile = () => {
   return (
     <Container>
       <Row>
-        <Col xs={12} lg={7} className=" offset-1">
+        <Col xs={12} lg={9}>
           <Jumbotron />
           <ForYou />
           <Esperienze />
@@ -31,8 +31,8 @@ const Profile = () => {
           <Formazione />
           <Interessi />
         </Col>
-        <Col xs={12} lg={3} className="bg-light">
-          <ListGroupExample />
+        <Col className="d-none d-lg-block" lg={3}>
+          <Rightside1 />
         </Col>
       </Row>
     </Container>

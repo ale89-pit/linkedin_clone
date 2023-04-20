@@ -27,6 +27,7 @@ const Esperienze = () => {
     setShow2(true)
     
     }
+    
     const loadingSigleExp = useSelector(state => state.experience.loadingExp)
     const singlexp = useSelector(state=>state.experience.singleExp)
     console.log(singlexp)
@@ -46,8 +47,10 @@ const Esperienze = () => {
   const experience = useSelector((state) => state.experience.content);
 
   useEffect(() => { }, []);
+  
+  
   useEffect(() => {
-    loading && dispatch(allExperiences(user, id));
+    loading && dispatch(allExperiences(user, id));  
   }, [id,experience.length]);
 
   console.log(experience);
@@ -64,7 +67,7 @@ const Esperienze = () => {
             <div><svg onClick={handleShow} xmlns="http://www.w3.org/2000/svg" data-toggle="modal" data-target="#PostExpModal" width="35" height="35" fill="currentColor" className="bi bi-plus-lg mx-2 p-1 hover" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
             </svg>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show}  onHide={handleClose}>
                 <Modal.Header closeButton>
                   <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
@@ -72,13 +75,15 @@ const Esperienze = () => {
                   <Form onSubmit={(e) => {
                     e.preventDefault()
                       ; dispatch(postNewExpeThunk(newExp, id, user))
-                  }}>
+                  }}
+                  
+                  >
                     <Form.Group className="mb-3" controlId="PostExpModal.ControlInput1">
                       <Form.Label>Role</Form.Label>
                       <Form.Control
                         type="text"
                         placeholder="Role"
-
+                        
                         onChange={(e) => dispatch(handleNewRole(e.target.value))}
                       />
                       <Form.Label>Company</Form.Label>
@@ -142,6 +147,7 @@ const Esperienze = () => {
                         placeholder="Role"
                         value={singlexp?.role}
                         onChange={(e) => dispatch(handleNewRole(e.target.value))}
+                        
                       />
                       <Form.Label>Company</Form.Label>
                       <Form.Control

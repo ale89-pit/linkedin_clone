@@ -2,25 +2,30 @@ import { Col, Row } from "react-bootstrap";
 
 const Analisi = () => {
   return (
-    <div className="whiteBg border rounded mt-2 p-3">
+    <div className="whiteBg border rounded mt-2 py-2 px-3">
       <h5 className="mt-3">Analisi</h5>
       <p>
-        <i className="fas fa-eye"></i>Solo per te
+        <i className="fas fa-eye pe-1"></i>Solo per te
       </p>
       <Row>
-        <Col>
-          <i className="fas fa-user-friends"></i>
+        <Col xs={1}>
+          <i className="fas fa-user-friends ms-2"></i>
         </Col>
-        <Col>
-          <p>x visualizzazioni del profilo</p>
-          <p>Scopri chi ha visitato il tuo profilo</p>
+        <Col xs={11} lg={4}>
+          <p>
+            <b>11 visualizzazioni del profilo</b>
+            <br />
+            Scopri chi ha visitato il tuo profilo
+          </p>
         </Col>
-        <Col>
-          <i className="fas fa-search"></i>
+        <Col xs={1}>
+          <i className="fas fa-search ms-2"></i>
         </Col>
-        <Col>
-          <p>z comparse nei motori di ricerca</p>
-          <p>vedi quante volte compari nei risultati di ricerca.</p>
+        <Col xs={11} lg={4}>
+          <p>
+            <b>26 comparse nei motori di ricerca</b> <br /> vedi quante volte
+            compari nei risultati di ricerca.
+          </p>
         </Col>
       </Row>
     </div>

@@ -9,11 +9,11 @@ const MiniProfile = () => {
 
   return (
     <Card className="align-item-center mb-3">
-      <Card.Img variant="top" height={80} src={user.image} />
+      <Card.Img variant="top" height={90} src={user.image} />
       <img
         className="rounded-circle text-center"
-        height={50}
-        width={50}
+        height={60}
+        width={60}
         src={user.image}
         alt="img-profile"
         id="fotoMiniJumbotron"

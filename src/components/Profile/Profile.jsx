@@ -20,18 +20,18 @@ const Profile = () => {
   return (
     <Container>
       <Row>
-        <Col xs={12} lg={9}>
+        <Col xs={12} lg={8}>
           <Jumbotron />
           <ForYou />
-          <Esperienze />
-          {allPosts > 0 && <ProfilePost user={user} />}
-          <Attività />
           <Analisi />
           <Risorse />
+          <Attività />
+          {allPosts > 0 && <ProfilePost user={user} />}
+          <Esperienze />
           <Formazione />
           <Interessi />
         </Col>
-        <Col className="d-none d-lg-block" lg={3}>
+        <Col xs={12} lg={4}>
           <Rightside1 />
         </Col>
       </Row>

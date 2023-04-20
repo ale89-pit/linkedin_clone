@@ -3,6 +3,7 @@ import ForYouStep2 from "./ForYouStep2";
 import ForYouStep3 from "./ForYouStep3";
 import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 const ForYou = () => {
   const [index, setIndex] = useState(0);
@@ -18,17 +19,9 @@ const ForYou = () => {
         <span>
           <i className="fas fa-eye me-2"></i>Solo per te
         </span>
-        <div>
+        <div className="my-2">
           <h5>Principiante</h5>
-          <div className="progress">
-            <div
-              className="progress-bar"
-              role="progressbar"
-              aria-valuenow="0"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            ></div>
-          </div>
+          <ProgressBar now={60} />
           <span>
             Completa 2 passaggi per raggiungere il livello{" "}
             <a href="#" style={{ textDecoration: "none", fontWeight: "bold" }}>

@@ -179,12 +179,14 @@ const NavBar = () => {
                         <Card.Text className="text-center">
                           <Row>
                             <Col xs={3}>
-                              <i class="fad fa-play"></i>
-                              <p>Learnig</p>
+                              <i class="fad fa-play-circle">
+                                <p>Learnig</p>
+                              </i>
                             </Col>
                             <Col xs={3}>
-                              <i class="far fa-chart-bar"></i>
-                              <p>Insights</p>
+                              <i class="far fa-chart-bar">
+                                <p>Insights</p>
+                              </i>
                             </Col>
                             <Col xs={3}>
                               <i class="fas fa-clipboard">
@@ -192,21 +194,27 @@ const NavBar = () => {
                               </i>
                             </Col>
                             <Col xs={3}>
-                              <i class="fas fa-compass"></i>
-                              <p>
-                                <nobr>Pubblicizza</nobr>
-                              </p>
+                              <i class="fas fa-compass">
+                                <p>
+                                  <nobr>Pubblicizza</nobr>
+                                </p>
+                              </i>
                             </Col>
                             <Col xs={3}>
-                              <i class="fas fa-compass"></i>
-                              <p>Trova lead</p>
+                              <i class="fas fa-compass">
+                                {" "}
+                                <p>Trova lead</p>
+                              </i>
                             </Col>
                             <Col xs={3}>
-                              <i class="fas fa-users"></i>
-                              <p>Gruppi</p>
+                              <i class="fas fa-users">
+                                {" "}
+                                <p>Gruppi</p>
+                              </i>
                             </Col>
                             <Col xs={3}>
-                              <i class="fad fa-check-double">
+                              <i class="fas fa-check">
+                                {" "}
                                 <p>Marketplace dei servizi</p>
                               </i>
                             </Col>

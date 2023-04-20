@@ -6,7 +6,7 @@ export const Footer = () => {
     <Container fluid className="mt-5 d-none d-md-block">
       <Row className="justify-content-center">
         <Col md={9}>
-          <Row className="d-flex align-items-center">
+          <Row className="d-flex ">
             <Col>
               <div className="d-flex flex-column">
                 <Link

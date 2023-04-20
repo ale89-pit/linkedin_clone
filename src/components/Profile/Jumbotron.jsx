@@ -1,16 +1,37 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Spinner } from "react-bootstrap/esm";
-import { team } from "../../redux/actions";
-import { useState } from "react";
+import { profileThunk, team } from "../../redux/actions";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-
+import Modal from "react-modal"
+import { openModal } from "./EsperienceCardDet";
 const Jumbotron = () => {
   const user = useSelector((state) => state.profile.content);
   const loading = useSelector((state) => state.profile.loading);
   let id = useSelector((state) => state.profile.content._id);
   const API_URL_PROFILE_PHOTO = `https://striveschool-api.herokuapp.com/api/profile/${id}/picture`
   const [fd, setFd] = useState(new FormData())
+  const reduxUser = useSelector((state) => state.login.user)
+  const dispatch = useDispatch()
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
+
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+  function closeModal() {
+    setIsOpen(false);
+  }
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log("fetch iniziata invio foto")
@@ -23,12 +44,15 @@ const Jumbotron = () => {
           Authorization: "Bearer " + team.find((u) => u.userName === user.username).key,
         }
       })
+      if (res.ok) {
+        dispatch(profileThunk(reduxUser.username))
+      }
       let foto = res.json();
       console.log(foto)
     } catch (error) {
       console.log(error)
     }
-
+    setIsOpen(false)
   }
   const handleFile = (e) => {
     setFd((prev) => {
@@ -60,7 +84,15 @@ const Jumbotron = () => {
                   <p className="text-start text-secondary">{user.area} </p>
                 </Col>
                 <Col xs={4}>
-                  <p className="text-end"><i className="fas fa-camera hover"></i></p>
+                  <p onClick={openModal} className="text-end fs-2"><i className="fas fa-camera hover"></i></p>
+                  <Modal isOpen={modalIsOpen} contentLabel="Example Modal"
+                    onRequestClose={closeModal}
+                    style={customStyles}>
+                    <Form onSubmit={handleSubmit}><input type="file" onChange={handleFile} />
+                      <Button type="submit">invia foto</Button>
+                      <Button type="button" variant="secondary" onClick={closeModal}>Close</Button>
+                    </Form>
+                  </Modal>
                   <p className="text-end">logo</p>
                 </Col>
               </Row>
@@ -103,8 +135,7 @@ const Jumbotron = () => {
               </Row>
             </Card.Body>
           </Card>
-          <Form onSubmit={handleSubmit}><input type="file" onChange={handleFile} />
-            <Button type="submit">invia foto</Button></Form>
+
         </>
       ) : (
         <div className="d-flex justify-content-center my-4">

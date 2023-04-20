@@ -9,6 +9,7 @@ import Formazione from "./Formazione";
 import Interessi from "./Interessi";
 import Esperienze from "./Esperienze";
 import Risorse from "./Risorse";
+import EsperienceCard from "./EsperienceCard";
 import ListGroupExample from "./Rightside1";
 import ProfilePost from "./ProfilePost";
 import { useSelector } from "react-redux";

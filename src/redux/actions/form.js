@@ -1,34 +1,8 @@
 import { async } from "q";
 
+import { team } from "./index.js";
 const API_URL_PROFILES = "https://striveschool-api.herokuapp.com/api/profile/";
 
-const team = [
-  {
-    userName: "Gabriele",
-    password: "gabriele",
-    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNjZjRkZDE4NmE4NzAwMTQzODY3YmIiLCJpYXQiOjE2ODE3MTY0NDUsImV4cCI6MTY4MjkyNjA0NX0.oOR7DIMKZCxaZkYvBIWTwTda1oeRSWQp4XQEkS5X_Hw",
-  },
-  {
-    userName: "AlessioP",
-    password: "alessiop",
-    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNjZjU1NDE4NmE4NzAwMTQzODY3YmMiLCJpYXQiOjE2ODE3MTY1NjQsImV4cCI6MTY4MjkyNjE2NH0.L5-SuknkVHJgea3WZ5Vy9ITPkNgEyTWCd3PUBLuJjSk",
-  },
-  {
-    userName: "AlessioF",
-    password: "alessiof",
-    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNlYWNlY2ZjYTEyOTAwMTQ0MGMwZjEiLCJpYXQiOjE2ODE4MjkxMDAsImV4cCI6MTY4MzAzODcwMH0.DZvdaOSboeqiJ7sAs-9zvB1PtS14FVDZMiH53fK-i1s",
-  },
-  {
-    userName: "Davide",
-    password: "davide",
-    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNjZjYzZTE4NmE4NzAwMTQzODY3YmQiLCJpYXQiOjE2ODE3MTY3OTgsImV4cCI6MTY4MjkyNjM5OH0.bSwIRR4GF21LG6XvgnbmmW_T7fLNOrWmMJCGxDVIYZE",
-  },
-  {
-    userName: "Federico",
-    password: "federico",
-    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNlYWRhMmZjYTEyOTAwMTQ0MGMwZjQiLCJpYXQiOjE2ODE4MjkyODIsImV4cCI6MTY4MzAzODg4Mn0._I-QvA_DTCaHtHLrPkNPHWf8KUJxyngghrMwxZ2NIog",
-  },
-];
 //Fomr Experience
 //Action Form New Experience
 export const ADD_ROLE = "ADD_ROLE";
@@ -83,6 +57,7 @@ export const addSingleExp = (singlexp) => {
 };
 export const postNewExpeThunk = (exp, userid, user) => {
   return async (dispatch, getState) => {
+    console.log("fetch");
     try {
       let resp = await fetch(API_URL_PROFILES + userid + "/experiences", {
         method: "POST",
@@ -94,9 +69,12 @@ export const postNewExpeThunk = (exp, userid, user) => {
       });
       if (resp.ok) {
         let newExpe = await resp.json();
-        console.log(newExpe);
+      } else {
+        alert("fetch fallita");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
@@ -116,9 +94,39 @@ export const delExpThunk = (userId, expId, user) => {
       );
       if (resp.ok) {
         alert("Experience delete");
+        window.location.reload();
       } else {
         alert("Eliminazione fallita");
       }
     } catch (error) {}
+  };
+};
+
+export const modifyExp = (exp, userId, expId, user) => {
+  return async (dispatch, getState) => {
+    console.log("fetch");
+    try {
+      let resp = await fetch(
+        API_URL_PROFILES + userId + "/experiences/" + expId,
+        {
+          method: "PUT",
+          body: JSON.stringify(exp),
+          headers: {
+            Authorization:
+              "Bearer " + team.find((u) => u.userName === user).key,
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
+      if (resp.ok) {
+        let expMod = await resp.json();
+        console.log(expMod);
+        window.location.reload();
+      } else {
+        alert("fetch fallita");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 };

@@ -32,9 +32,9 @@ export const team = [
     key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNjZjYzZTE4NmE4NzAwMTQzODY3YmQiLCJpYXQiOjE2ODE3MTY3OTgsImV4cCI6MTY4MjkyNjM5OH0.bSwIRR4GF21LG6XvgnbmmW_T7fLNOrWmMJCGxDVIYZE",
   },
   {
-    userName: "Federico",
-    password: "federico",
-    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNlYWRhMmZjYTEyOTAwMTQ0MGMwZjQiLCJpYXQiOjE2ODE4MjkyODIsImV4cCI6MTY4MzAzODg4Mn0._I-QvA_DTCaHtHLrPkNPHWf8KUJxyngghrMwxZ2NIog",
+    userName: "freiff",
+    password: "1234qwer",
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQxNDEwMmI0YjQ4NDAwMTQ4ZDVkMjIiLCJpYXQiOjE2ODE5OTgwODIsImV4cCI6MTY4MzIwNzY4Mn0.bKv2_4kra-kj-Wl6-ItnnBB1Nv3yPCEcyT_CWVj943c",
   },
 ];
 

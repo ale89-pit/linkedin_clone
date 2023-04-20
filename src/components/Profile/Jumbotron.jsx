@@ -1,4 +1,4 @@
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Spinner } from "react-bootstrap/esm";
 
@@ -61,12 +61,12 @@ const Jumbotron = ({ userLink }) => {
                 <b>Disponibile per</b>
               </Button>
 
-              <Button
-                className="text-start mx-1  py-0 rounded-pill"
-                variant="outline-primary"
-              >
-                Aggiungi sezione al profilo
-              </Button>
+            <Button
+              className="text-start mx-1  py-1 rounded-pill"
+              variant="outline-primary"
+            >
+              Aggiungi sezione al profilo
+            </Button>
 
               <Button
                 className="text-start mx-1 py-0 rounded-pill"
@@ -81,12 +81,8 @@ const Jumbotron = ({ userLink }) => {
                 <p className="mb-0 fw-bold text-primary">
                   Disponibile a lavorare
                 </p>
-              </div>
-            </div>
-
-            <div>
-              <p>logo</p>
-            </div>
+              </Col>
+            </Row>
           </Card.Body>
         </Card>
       ) : (

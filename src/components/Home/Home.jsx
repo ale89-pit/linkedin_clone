@@ -8,8 +8,9 @@ import ShowPost from "./ShowPost";
 import { useEffect } from "react";
 import { postsThunk } from "../../redux/actions/HomePost";
 import { Spinner } from "react-bootstrap";
-import ProfilePost from "../Profile/ProfilePost";
 import MiniProfile from "./MiniProfile";
+import ShortNews from "./ShortNews";
+import FooterHome from "./FooterHome";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -24,10 +25,10 @@ const Home = () => {
     <div>
       <Container>
         <Row>
-          <Col xs={12} lg={3} className="offset-1">
+          <Col xs={12} md={4} lg={3}>
             <MiniProfile />
           </Col>
-          <Col xs={12} lg={4}>
+          <Col xs={12} md={8} lg={6}>
             <MakePost />
             <hr />
 
@@ -41,7 +42,15 @@ const Home = () => {
               </div>
             )}
           </Col>
-          <Col xs={12} lg={3} className="bg-light"></Col>
+          <Col className="d-none d-lg-block" lg={3}>
+            <ShortNews />
+            <img
+              src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
+              className="w-100 my-2"
+              alt=""
+            />
+            <FooterHome />
+          </Col>
         </Row>
       </Container>
     </div>

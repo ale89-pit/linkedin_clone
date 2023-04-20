@@ -1,15 +1,17 @@
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 
-function ListGroupExample() {
+const Rightside1 = () => {
   return (
-    <Card style={{ width: '18rem'}}>
-      <ListGroup variant="flush">
-        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+    <Card>
+      <ListGroup variant="list-group-flush">
+        <ListGroup.Item>Modifica il profilo pubblico e l'URL</ListGroup.Item>
+        <ListGroup.Item>
+          Aggiungi il tuo profilo in un'altra lingua
+        </ListGroup.Item>
       </ListGroup>
     </Card>
   );
-}
+};
 
-export default ListGroupExample;
+export default Rightside1;

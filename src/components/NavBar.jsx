@@ -12,8 +12,7 @@ import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
-import Modal from "react-bootstrap/Modal";
+import Offcanvas from "react-bootstrap/Offcanvas";
 
 const NavBar = () => {
   const user = useSelector((state) => state.profile.content);
@@ -26,7 +25,7 @@ const NavBar = () => {
     <Navbar bg="light">
       <Container>
         <Nav className="my-2 my-lg-0 w-100" style={{ maxHeight: "50px" }}>
-          <Row className="justify-content-between w-100">
+          <Row className="justify-content-between w-100 align-item-center">
             <Col className="d-flex">
               <Link to={"/home"} className="me-2 my-1">
                 <img
@@ -98,62 +97,65 @@ const NavBar = () => {
                 </svg>
                 <p className="d-none d-lg-inline">Notifiche</p>
               </Nav.Link>
-              <div className="mx-2">
-                <img />
-                <DropdownButton
-                  drop="down"
-                  variant="transparent"
-                  id="dropdownNavbar"
-                  title={
-                    <div className="m-0 p-0">
-                      <img src={user.image} height={20} alt="1"></img>
-                      <p className="d-none d-lg-block">"Tu"</p>
-                    </div>
-                  }
-                  size="sm"
-                >
-                  <Dropdown.Item>
-                    <Row>
-                      <Col xs={2}>
-                        <img src={user.image} height={40} alt="" />
-                      </Col>
-                      <Col>
-                        <h4>
-                          {user.name} {user.surname}
-                        </h4>
-                      </Col>
-                    </Row>
-                    <Button
-                      className="w-100 my-2"
-                      onClick={() => {
-                        navigate("/me");
-                      }}
-                    >
-                      Visualizza profilo
-                    </Button>
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <div className="mx-3">
-                    <h5>Account</h5>
+              <DropdownButton
+                drop="down"
+                variant="transparent"
+                id="dropdownNavbar"
+                title={
+                  <div className="m-0 p-0">
+                    <img src={user.image} height={20} alt="1"></img>
+                    <p className="d-none d-lg-block m-0">"Tu"</p>
                   </div>
-                  <Dropdown.Item>Prova Premium gratis</Dropdown.Item>
-                  <Dropdown.Item>Impostazioni e privacy</Dropdown.Item>
-                  <Dropdown.Item>Guida</Dropdown.Item>
-                  <Dropdown.Item>Lingua</Dropdown.Item>
-                  <Dropdown.Divider />
-                  <div className="mx-3">
-                    <h5>Gestisci</h5>
-                  </div>
-                  <Dropdown.Item>Post e attività</Dropdown.Item>
-                  <Dropdown.Item>
-                    Account per la pubblicazione di offer...
-                  </Dropdown.Item>
-                  <Dropdown.Item>Esci</Dropdown.Item>
-                </DropdownButton>
-              </div>
-              <div className="vr" />
+                }
+                size="sm"
+                className="mx-2"
+              >
+                <Dropdown.Item>
+                  <Row>
+                    <Col xs={2}>
+                      <img src={user.image} height={40} alt="" />
+                    </Col>
+                    <Col>
+                      <h4>
+                        {user.name} {user.surname}
+                      </h4>
+                    </Col>
+                  </Row>
+                  <Button
+                    className="w-100 my-2"
+                    onClick={() => {
+                      navigate("/me");
+                    }}
+                  >
+                    Visualizza profilo
+                  </Button>
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <div className="mx-3">
+                  <h5>Account</h5>
+                </div>
+                <Dropdown.Item>Prova Premium gratis</Dropdown.Item>
+                <Dropdown.Item>Impostazioni e privacy</Dropdown.Item>
+                <Dropdown.Item>Guida</Dropdown.Item>
+                <Dropdown.Item>Lingua</Dropdown.Item>
+                <Dropdown.Divider />
+                <div className="mx-3">
+                  <h5>Gestisci</h5>
+                </div>
+                <Dropdown.Item>Post e attività</Dropdown.Item>
+                <Dropdown.Item>
+                  Account per la pubblicazione di offer...
+                </Dropdown.Item>
+                <Dropdown.Item>Esci</Dropdown.Item>
+              </DropdownButton>
+
+              <div className="vr " id="barraVerticale" />
               <div className="mb-2 text-center">
-                <Button variant="transparent" onClick={handleShow}>
+                <Button
+                  variant="transparent"
+                  className="border-0"
+                  onClick={handleShow}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height={20}
@@ -163,16 +165,15 @@ const NavBar = () => {
                     <path d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z" />
                   </svg>
                   <p className="d-none d-lg-block">
-                    <nobr>"Per la tua azienda"</nobr>
+                    <nobr>Per le aziende</nobr>
                   </p>
                 </Button>
-
-                <Modal show={show} onHide={handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Scopri altri prodotti Linkedin</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <Card className="mb-2">
+                <Offcanvas show={show} placement="end" onHide={handleClose}>
+                  <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Per le aziende</Offcanvas.Title>
+                  </Offcanvas.Header>
+                  <Offcanvas.Body>
+                    <Card className="offCanvasNavbar mb-2">
                       <Card.Header>Scopri altri prodotti Linkedin</Card.Header>
                       <Card.Body>
                         <Card.Text className="text-center">
@@ -192,7 +193,9 @@ const NavBar = () => {
                             </Col>
                             <Col xs={3}>
                               <i class="fas fa-compass"></i>
-                              <p>Pubblicizza</p>
+                              <p>
+                                <nobr>Pubblicizza</nobr>
+                              </p>
                             </Col>
                             <Col xs={3}>
                               <i class="fas fa-compass"></i>
@@ -211,7 +214,7 @@ const NavBar = () => {
                         </Card.Text>
                       </Card.Body>
                     </Card>
-                    <Card>
+                    <Card className="offCanvasNavbar">
                       <Card.Header>
                         Assistenza alle aziende di Linkedin
                       </Card.Header>
@@ -249,8 +252,8 @@ const NavBar = () => {
                         </Card.Text>
                       </Card.Body>
                     </Card>
-                  </Modal.Body>
-                </Modal>
+                  </Offcanvas.Body>
+                </Offcanvas>
               </div>
             </Col>
           </Row>

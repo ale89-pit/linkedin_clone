@@ -57,9 +57,9 @@ const Esperienze = () => {
   return (
     <>
       {loadingEx ? (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <div className="d-flex justify-content-center my-4">
+          <Spinner></Spinner>
+        </div>
       ) : experience.length > 0 ? (
         location.pathname === "/experience" ? (experience.map(exp => <Card className="my-3">
             {console.log(exp._id)}

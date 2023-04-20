@@ -9,22 +9,30 @@ import Formazione from "./Formazione";
 import Interessi from "./Interessi";
 import Esperienze from "./Esperienze";
 import Risorse from "./Risorse";
+import ListGroupExample from "./Rightside1";
+import ProfilePost from "./ProfilePost";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
+  const user = useSelector((state) => state.login.user.username);
+  const allPosts = useSelector((state) => state.home.allPosts);
   return (
     <Container>
       <Row>
-        <Col xs={7} className=" offset-1">
+        <Col xs={12} lg={7} className=" offset-1">
           <Jumbotron />
           <ForYou />
-          <Analisi />
-          <Attività />
           <Esperienze />
+          {allPosts > 0 && <ProfilePost user={user} />}
+          <Attività />
+          <Analisi />
+          <Risorse />
           <Formazione />
           <Interessi />
-          <Risorse />
         </Col>
-        <Col xs={3} className="bg-light"></Col>
+        <Col xs={12} lg={3} className="bg-light">
+          <ListGroupExample />
+        </Col>
       </Row>
     </Container>
   );

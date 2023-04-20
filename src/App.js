@@ -9,6 +9,10 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import ExperienceDetails from "./components/Profile/EsperienceDetails";
+import React from "react";
+import ReactDOM from "react-dom";
+import Modal from "react-modal";
+Modal.setAppElement("#root");
 
 function App() {
   return (
@@ -17,7 +21,9 @@ function App() {
         <Container fluid>
           <Row>
             <Col>
-              <NavBar />
+              <header>
+                <NavBar />
+              </header>
             </Col>
           </Row>
           <div className="p-3">
@@ -31,7 +37,9 @@ function App() {
 
           <Row>
             <Col>
-              <Footer />
+              <footer>
+                <Footer />
+              </footer>
             </Col>
           </Row>
         </Container>

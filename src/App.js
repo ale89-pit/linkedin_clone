@@ -8,6 +8,7 @@ import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
+import ExperienceDetails from "./components/Profile/EsperienceDetails";
 import React from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
@@ -25,17 +26,15 @@ function App() {
               </header>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <div className="p-3">
-                <Routes>
-                  <Route path="/me" element={<Profile />}></Route>
-                  <Route path="/" element={<Login />}></Route>
-                  <Route path="/home" element={<Home />}></Route>
-                </Routes>
-              </div>
-            </Col>
-          </Row>
+          <div className="p-3">
+            <Routes>
+              <Route path="/me" element={<Profile />}></Route>
+              <Route path="/" element={<Login />}></Route>
+              <Route path="/home" element={<Home />}></Route>
+              <Route path="/experience" element={<ExperienceDetails />} />
+            </Routes>
+          </div>
+
           <Row>
             <Col>
               <footer>

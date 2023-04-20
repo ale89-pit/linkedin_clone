@@ -10,6 +10,7 @@ import Interessi from "./Interessi";
 import Esperienze from "./Esperienze";
 import Risorse from "./Risorse";
 import Rightside1 from "./Rightside1";
+import EsperienceCard from "./EsperienceCard";
 import ProfilePost from "./ProfilePost";
 import { useSelector } from "react-redux";
 

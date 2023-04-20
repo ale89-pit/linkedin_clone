@@ -15,6 +15,7 @@ import {
   REGISTER,
   REHYDRATE,
 } from "redux-persist";
+import { formExpReducer } from "../reducers/formExpReducer";
 
 const persistConfig = {
   key: "root",
@@ -28,9 +29,10 @@ const reducers = combineReducers({
   profile: profileReducer,
   experience: experiencesReducers,
   login: loginReducer,
+  form: formExpReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, reducers)
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
   reducer: persistedReducer,

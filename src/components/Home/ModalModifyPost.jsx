@@ -61,6 +61,38 @@ const ModalModifyPost = ({ user, userImg, post }) => {
     }
   };
 
+  const [fileState, setFileState] = useState(new FormData());
+
+  const putAFilePost = async (user) => {
+    try {
+      const response = await fetch(API_POSTS + `${post._id}`, {
+        method: "PUT",
+        body: fileState,
+        headers: {
+          Authorization: "Bearer " + team.find((u) => u.userName === user).key,
+        },
+      });
+      return response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleFile = (ev) => {
+    setFileState((current) => {
+      current.delete("post");
+      current.append("post", ev.target.files[0]);
+      return current;
+    });
+  };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    putAPost(user);
+    putAFilePost(user);
+    window.location.reload();
+  };
+
   return (
     <div className="whiteBg rounded modalMakePost ">
       <div className="p-2 d-flex align-items-center">
@@ -72,13 +104,7 @@ const ModalModifyPost = ({ user, userImg, post }) => {
         />
         <h2>{user}</h2>
       </div>
-      <Form
-        onSubmit={(e) => {
-          e.preventDefault();
-          putAPost(user);
-          window.location.reload();
-        }}
-      >
+      <Form onSubmit={handleSubmit}>
         <Form.Group
           onChange={(e) => {
             dispatch(sendChange(e.target.value));
@@ -89,6 +115,11 @@ const ModalModifyPost = ({ user, userImg, post }) => {
         >
           <Form.Control value={textValue} as="textarea" rows={3} />
         </Form.Group>
+        <input
+          className="btn btn-primary mb-3"
+          type="file"
+          onChange={handleFile}
+        />
 
         <div className="d-flex">
           <button className="rounded-circle">

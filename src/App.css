@@ -2,9 +2,11 @@ html,
 body {
   background-color: #f3f2ef !important;
 }
+
 .whiteBg {
   background-color: white !important;
 }
+
 .carousel-control-next,
 .carousel-control-prev {
   display: none;
@@ -106,6 +108,12 @@ h6 {
   height: 3em;
   width: 100%;
   background-color: #ffffff;
+}
+
+.hover:hover {
+  background-color: #d8d8d8;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 .modalMakePost {

@@ -1,66 +1,71 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
-import { allExperiences } from "../../redux/actions";
+import { addSingleExp, delExpThunk, handleArea, handleCompany, handleEndDate, handleNewRole, handleStartDate, handlleDescription } from "../../redux/actions/form";
+import { allExperiences } from "../../redux/actions/index.js"
 import { Spinner } from "react-bootstrap/esm";
+import CardHeader from "react-bootstrap/esm/CardHeader";
+import Modal from "react-bootstrap/Modal";
+import { Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import { postNewExpeThunk } from "../../redux/actions/form";
+import { getSingleExp } from "../../redux/actions/form";
+import { formExpReducer } from "../../redux/reducers/formExpReducer";
+import { Link, useLocation } from "react-router-dom/dist";
+import EsperienceCard from "./EsperienceCard";
+import EsperienceCardDet from "./EsperienceCardDet";
 
 const Esperienze = () => {
-  let id = useSelector((state) => state.profile.content._id);
-  const user = useSelector((state) => state.login.user.username);
+  //Sezione per far mostrare modal
+  const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleClose2 = () => setShow2(false);
+  
+  const handleShow2 = (id) =>{
+    dispatch(addSingleExp(experience.find((e)=>e._id === id)))
+    setShow2(true)
+    
+    }
+    
+    const loadingSigleExp = useSelector(state => state.experience.loadingExp)
+    const singlexp = useSelector(state=>state.experience.singleExp)
+    console.log(singlexp)
+  const handleShow = () => setShow(true);
+  
+  
+  const location = useLocation()
+  console.log(location)
+  //Fine sezione modale
+  
   const loadingEx = useSelector((state) => state.experience.loadingExperience);
   const loading = useSelector((state) => state.profile.loading);
-  console.log(user);
-  console.log(id);
+  let id = useSelector((state) => state.profile.content._id);
+  const user = useSelector((state) => state.login.user.username);
   const dispatch = useDispatch();
-
-  useEffect(() => {}, []);
-  useEffect(() => {
-    loading && dispatch(allExperiences(user, id));
-  }, [id]);
-
   const experience = useSelector((state) => state.experience.content);
+
+  useEffect(() => { }, []);
+  
+  
+  useEffect(() => {
+    loading && dispatch(allExperiences(user, id));  
+  }, [id,experience.length]);
+
   console.log(experience);
   return (
     <>
       {loadingEx ? (
-        <div className="d-flex justify-content-center my-4">
-          <Spinner></Spinner>
-        </div>
-      ) : experience.length > 0 ? (
-        <Card>
-          <Card.Header>
-            <h3>{experience[experience.length - 1].role}</h3>
-          </Card.Header>
-          <Row>
-            <Col xs={2}>
-              <img src="https://placekitten.com/100" alt="" />
-            </Col>
-            <Col>
-              <Card.Body>
-                <Card.Title>
-                  {experience[experience.length - 1].company}
-                </Card.Title>
-                <Card.Text>
-                  {experience[experience.length - 1].description}
-                </Card.Text>
-              </Card.Body>
-            </Col>
-          </Row>
-        </Card>
-      ) : (
-        <Card>
-          <Card.Header>
-            <h3>No Experiences Yet</h3>
-          </Card.Header>
-          <Row>
-            <Col>
-              <Card.Body></Card.Body>
-            </Col>
-          </Row>
-        </Card>
-      )}
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      ): location.pathname === "/experience" ? (experience.map(exp =><EsperienceCardDet exp={exp}/>))
+      
+      : (<EsperienceCard />) 
+      }
+
     </>
   );
 };

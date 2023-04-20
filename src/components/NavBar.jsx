@@ -26,7 +26,7 @@ const NavBar = () => {
     <Navbar bg="light">
       <Container>
         <Nav className="my-2 my-lg-0 w-100" style={{ maxHeight: "50px" }}>
-          <Row className="justify-content-between w-100">
+          <Row className="justify-content-between w-100 align-item-center">
             <Col className="d-flex">
               <Link to={"/home"} className="me-2 my-1">
                 <img
@@ -98,59 +98,58 @@ const NavBar = () => {
                 </svg>
                 <p className="d-none d-lg-inline">Notifiche</p>
               </Nav.Link>
-              <div className="mx-2">
-                <img />
-                <DropdownButton
-                  drop="down"
-                  variant="transparent"
-                  id="dropdownNavbar"
-                  title={
-                    <div className="m-0 p-0">
-                      <img src={user.image} height={20} alt="1"></img>
-                      <p className="d-none d-lg-block">"Tu"</p>
-                    </div>
-                  }
-                  size="sm"
-                >
-                  <Dropdown.Item>
-                    <Row>
-                      <Col xs={2}>
-                        <img src={user.image} height={40} alt="" />
-                      </Col>
-                      <Col>
-                        <h4>
-                          {user.name} {user.surname}
-                        </h4>
-                      </Col>
-                    </Row>
-                    <Button
-                      className="w-100 my-2"
-                      onClick={() => {
-                        navigate("/me");
-                      }}
-                    >
-                      Visualizza profilo
-                    </Button>
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <div className="mx-3">
-                    <h5>Account</h5>
+              <DropdownButton
+                drop="down"
+                variant="transparent"
+                id="dropdownNavbar"
+                title={
+                  <div className="m-0 p-0">
+                    <img src={user.image} height={20} alt="1"></img>
+                    <p className="d-none d-lg-block m-0">"Tu"</p>
                   </div>
-                  <Dropdown.Item>Prova Premium gratis</Dropdown.Item>
-                  <Dropdown.Item>Impostazioni e privacy</Dropdown.Item>
-                  <Dropdown.Item>Guida</Dropdown.Item>
-                  <Dropdown.Item>Lingua</Dropdown.Item>
-                  <Dropdown.Divider />
-                  <div className="mx-3">
-                    <h5>Gestisci</h5>
-                  </div>
-                  <Dropdown.Item>Post e attività</Dropdown.Item>
-                  <Dropdown.Item>
-                    Account per la pubblicazione di offer...
-                  </Dropdown.Item>
-                  <Dropdown.Item>Esci</Dropdown.Item>
-                </DropdownButton>
-              </div>
+                }
+                size="sm"
+                className="mx-2"
+              >
+                <Dropdown.Item>
+                  <Row>
+                    <Col xs={2}>
+                      <img src={user.image} height={40} alt="" />
+                    </Col>
+                    <Col>
+                      <h4>
+                        {user.name} {user.surname}
+                      </h4>
+                    </Col>
+                  </Row>
+                  <Button
+                    className="w-100 my-2"
+                    onClick={() => {
+                      navigate("/me");
+                    }}
+                  >
+                    Visualizza profilo
+                  </Button>
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <div className="mx-3">
+                  <h5>Account</h5>
+                </div>
+                <Dropdown.Item>Prova Premium gratis</Dropdown.Item>
+                <Dropdown.Item>Impostazioni e privacy</Dropdown.Item>
+                <Dropdown.Item>Guida</Dropdown.Item>
+                <Dropdown.Item>Lingua</Dropdown.Item>
+                <Dropdown.Divider />
+                <div className="mx-3">
+                  <h5>Gestisci</h5>
+                </div>
+                <Dropdown.Item>Post e attività</Dropdown.Item>
+                <Dropdown.Item>
+                  Account per la pubblicazione di offer...
+                </Dropdown.Item>
+                <Dropdown.Item>Esci</Dropdown.Item>
+              </DropdownButton>
+
               <div className="vr" />
               <div className="mb-2 text-center">
                 <Button variant="transparent" onClick={handleShow}>

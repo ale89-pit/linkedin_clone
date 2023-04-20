@@ -3,10 +3,12 @@ import { sendChange } from "../../redux/actions/HomePost";
 import { useSelector, useDispatch } from "react-redux";
 import { API_POSTS } from "../../redux/actions/HomePost";
 import { team } from "../../redux/actions";
+import { useEffect, useState } from "react";
 
 const ModalMakePost = ({ user, userImg, post }) => {
   const textPost = useSelector((state) => state.home.text);
   const dispatch = useDispatch();
+  console.log(post);
 
   const postAPost = async (user) => {
     try {
@@ -19,10 +21,44 @@ const ModalMakePost = ({ user, userImg, post }) => {
         },
         body: JSON.stringify({ text: textPost }),
       });
+      if (response.ok) {
+        let savedPost = await response.json();
+        postAFilePost(user, savedPost._id);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [fileState, setFileState] = useState(new FormData());
+
+  const postAFilePost = async (user, id) => {
+    try {
+      const response = await fetch(API_POSTS + `${id}`, {
+        method: "POST",
+        body: fileState,
+        headers: {
+          Authorization: "Bearer " + team.find((u) => u.userName === user).key,
+        },
+      });
       return response.json();
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleFile = (ev) => {
+    setFileState((current) => {
+      current.delete("post");
+      current.append("post", ev.target.files[0]);
+      return current;
+    });
+  };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    postAPost(user);
+    // window.location.reload();
   };
 
   return (
@@ -36,13 +72,7 @@ const ModalMakePost = ({ user, userImg, post }) => {
         />
         <h2>{user}</h2>
       </div>
-      <Form
-        onSubmit={(e) => {
-          e.preventDefault();
-          postAPost(user);
-          window.location.reload();
-        }}
-      >
+      <Form onSubmit={handleSubmit}>
         <Form.Group
           onChange={(e) => {
             dispatch(sendChange(e.target.value));
@@ -53,6 +83,11 @@ const ModalMakePost = ({ user, userImg, post }) => {
         >
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
+        <input
+          className="btn btn-primary mb-3"
+          type="file"
+          onChange={handleFile}
+        />
 
         <div className="d-flex">
           <button className="rounded-circle">

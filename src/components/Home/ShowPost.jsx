@@ -33,9 +33,32 @@ const ShowPost = ({ post }) => {
     setIsOpen(false);
   }
   return (
-    <div className="whiteBg rounded border p-3 w-100 d-flex flex-column mb-2">
-      <div className="d-flex justify-content-between">
-        <small className="fw-bold">{post.username}</small>
+    <div className="whiteBg rounded border  pb-0 w-100 d-flex flex-column mb-2">
+      <div className="d-flex justify-content-between w-100">
+        <div className="d-flex w-100 justify-content-between align-items-center p-2">
+          <div>
+            <img
+              src={post.user.image}
+              onError={(ev) => {
+                ev.target.src = "http://placekitten.com/800";
+              }}
+              className="rounded-circle me-2"
+              width={40}
+              height={40}
+            />
+            <small
+              className="fw-bold d-inline"
+              style={{ height: "fit-content" }}
+            >
+              {post.username}
+            </small>
+          </div>
+
+          <small className="align-self-end ">
+            {post.createdAt.slice(0, 10)}
+          </small>
+        </div>
+
         {post.username === user && (
           <div>
             <button
@@ -56,10 +79,26 @@ const ShowPost = ({ post }) => {
           </div>
         )}
       </div>
-      <p className="lh-1">{post.text}</p>
-      <small className="align-self-end text-bg-info rounded-pill p-1">
-        {post.createdAt.slice(0, 10)}
-      </small>
+      <p className="lh-1 p-2">{post.text}</p>
+      <img src={post.image} className="w-100 mb-1 d-block " />
+      <div className="border-top d-flex justify-content-evenly">
+        <div className="d-flex flex-column align-items-center justify-content-center mt-3 p-2 text-secondary">
+          <i class="fas fa-thumbs-up fs-5"></i>
+          <small>Consiglia</small>
+        </div>
+        <div className="d-flex flex-column align-items-center justify-content-center mt-3 p-2 text-secondary">
+          <i class="fas fa-comments fs-5"></i>
+          <small>Commenta</small>
+        </div>
+        <div className="d-flex flex-column align-items-center justify-content-center mt-3 p-2 text-secondary">
+          <i class="fas fa-retweet fs-5"></i>
+          <small>Diffondi</small>
+        </div>
+        <div className="d-flex flex-column align-items-center justify-content-center mt-3 p-2 text-secondary">
+          <i class="fas fa-paper-plane fs-5"></i>
+          <small>Invia</small>
+        </div>
+      </div>
     </div>
   );
 };

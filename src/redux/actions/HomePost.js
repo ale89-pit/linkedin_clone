@@ -18,7 +18,7 @@ export const postsThunk = (user) => {
 
         dispatch({
           type: GET_POSTS,
-          payload: postsData,
+          payload: postsData.reverse().slice(0, 100),
         });
       } else {
         alert("Error fetching results");

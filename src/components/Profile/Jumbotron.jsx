@@ -6,7 +6,7 @@ const Jumbotron = ({ userLink }) => {
   const user = useSelector((state) => state.profile.content);
   const loading = useSelector((state) => state.profile.loading);
   return (
-    <>
+    <div>
       {loading ? (
         <Card className="w-100 positon-relative mb-2" id="jumbo-Card">
           <div className="rounded">
@@ -26,61 +26,65 @@ const Jumbotron = ({ userLink }) => {
             </svg>
           </div>
           <Card.Body className="d-flex justify-content-between">
-            {!userLink ? (
-              <img
-                className="rounded-circle position-absolute imgJumboRoundend
+            <Row>
+              <Col>
+                {!userLink ? (
+                  <img
+                    className="rounded-circle position-absolute imgJumboRoundend
    "
-                src={user.image}
-                alt="img-profile"
-              />
-            ) : (
-              <img
-                className="rounded-circle position-absolute imgJumboRoundend
+                    src={user.image}
+                    alt="img-profile"
+                  />
+                ) : (
+                  <img
+                    className="rounded-circle position-absolute imgJumboRoundend
  "
-                src={userLink.image}
-                alt="img-profile"
-              />
-            )}
-            <div>
-              {!userLink ? (
-                <h3 className="text-start mb-0">
-                  {user.name} {user.surname}
-                </h3>
-              ) : (
-                <h3 className="text-start mb-0">
-                  {userLink.name} {userLink.surname}
-                </h3>
-              )}
-              <p className="text-start mb-1">Studente presso</p>
-              <p className="text-start text-secondary">{user.area} </p>
+                    src={userLink.image}
+                    alt="img-profile"
+                  />
+                )}
+                <div>
+                  {!userLink ? (
+                    <h3 className="text-start mb-0">
+                      {user.name} {user.surname}
+                    </h3>
+                  ) : (
+                    <h3 className="text-start mb-0">
+                      {userLink.name} {userLink.surname}
+                    </h3>
+                  )}
+                  <p className="text-start mb-1">Studente presso</p>
+                  <p className="text-start text-secondary">{user.area} </p>
 
-              <Button
-                className="text-start mx-1 py-0 rounded-pill "
-                variant="primary"
-              >
-                <b>Disponibile per</b>
-              </Button>
+                  <Button
+                    className="text-start mx-1 py-0 rounded-pill "
+                    variant="primary"
+                  >
+                    <b>Disponibile per</b>
+                  </Button>
+                </div>
 
-            <Button
-              className="text-start mx-1  py-1 rounded-pill"
-              variant="outline-primary"
-            >
-              Aggiungi sezione al profilo
-            </Button>
+                <Button
+                  className="text-start mx-1  py-1 rounded-pill"
+                  variant="outline-primary"
+                >
+                  Aggiungi sezione al profilo
+                </Button>
 
-              <Button
-                className="text-start mx-1 py-0 rounded-pill"
-                variant="outline-secondary"
-              >
-                <b>Altro</b>
-              </Button>
-              <div
-                id="backgroudJumboDiv"
-                className="w-100 mt-4 ps-2 rounded text-start"
-              >
-                <p className="mb-0 fw-bold text-primary">
-                  Disponibile a lavorare
-                </p>
+                <Button
+                  className="text-start mx-1 py-0 rounded-pill"
+                  variant="outline-secondary"
+                >
+                  <b>Altro</b>
+                </Button>
+                <div
+                  id="backgroudJumboDiv"
+                  className="w-100 mt-4 ps-2 rounded text-start"
+                >
+                  <p className="mb-0 fw-bold text-primary">
+                    Disponibile a lavorare
+                  </p>
+                </div>
               </Col>
             </Row>
           </Card.Body>
@@ -90,7 +94,7 @@ const Jumbotron = ({ userLink }) => {
           <Spinner></Spinner>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

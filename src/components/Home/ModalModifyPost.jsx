@@ -66,13 +66,13 @@ const ModalModifyPost = ({ user, userImg, post }) => {
   const putAFilePost = async (user) => {
     try {
       const response = await fetch(API_POSTS + `${post._id}`, {
-        method: "PUT",
+        method: "POST",
         body: fileState,
         headers: {
           Authorization: "Bearer " + team.find((u) => u.userName === user).key,
         },
       });
-      return response.json();
+      // return response.json();
     } catch (error) {
       console.log(error);
     }
@@ -90,7 +90,7 @@ const ModalModifyPost = ({ user, userImg, post }) => {
     ev.preventDefault();
     putAPost(user);
     putAFilePost(user);
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (

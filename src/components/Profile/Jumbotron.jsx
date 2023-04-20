@@ -1,15 +1,49 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Spinner } from "react-bootstrap/esm";
+import { team } from "../../redux/actions";
+import { useState } from "react";
+import { Form } from "react-bootstrap";
 
 const Jumbotron = () => {
-  const user = useSelector((state) => state.profile.content);
+  const user = useSelector((state) => state.profile.content.username);
   const loading = useSelector((state) => state.profile.loading);
+  let id = useSelector((state) => state.profile.content._id);
+  const API_URL_PROFILE_PHOTO = `https://striveschool-api.herokuapp.com/api/profile/${id}/picture`
+  const[fd,setFd] = useState(new FormData())
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+    console.log("fetch iniziata invio foto")
+    console.log(user)
+    try {
+       let res = await fetch(API_URL_PROFILE_PHOTO,{
+      method:"POST",
+      body:fd,
+      headers:{
+        Authorization : "Bearer" + team.find((u)=> u.userName === user).key,
+      }
+    })
+    return res.json();
+    } catch (error) {
+      console.log(error)
+    }
+   
+  }
+  const handleFile = (e)=>{
+    setFd((prev)=>{
+      prev.delete("profile")
+      prev.append("profile",e.target.files[0])
+      return prev
+    })
+  }
   return (
     <>
       {loading ? (
         <Card className="w-100 positon-relative mb-2" id="jumbo-Card">
           <Card.Img variant="top" id="sizeImgJumbo" src={user.image} />
+          <Form onSubmit={handleSubmit}><input type="file" onChange={handleFile} />
+          <Button type="submit">invia foto</Button></Form>
+          
           <Card.Body>
             <img
               className="rounded-circle position-absolute imgJumboRoundend"

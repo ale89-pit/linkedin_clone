@@ -27,7 +27,7 @@ const Profile = () => {
           <Analisi />
           <Risorse />
           <Attività />
-          {allPosts > 0 && <ProfilePost user={user} />}
+          {allPosts[0] && <ProfilePost user={user} />}
           <Esperienze />
           <Lingue />
           <Interessi />

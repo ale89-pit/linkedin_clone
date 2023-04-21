@@ -3,7 +3,7 @@ import { sendChange } from "../../redux/actions/HomePost";
 import { useSelector, useDispatch } from "react-redux";
 import { API_POSTS } from "../../redux/actions/HomePost";
 import { team } from "../../redux/actions";
-import { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { postsThunk } from "../../redux/actions/HomePost";
 
 const ModalMakePost = ({ user, userImg, post, closeModal }) => {
@@ -42,7 +42,10 @@ const ModalMakePost = ({ user, userImg, post, closeModal }) => {
           Authorization: "Bearer " + team.find((u) => u.userName === user).key,
         },
       });
-      return response.json();
+      if (response.ok) {
+        dispatch(postsThunk(user));
+        return response.json();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +55,7 @@ const ModalMakePost = ({ user, userImg, post, closeModal }) => {
     setFileState((current) => {
       current.delete("post");
       current.append("post", ev.target.files[0]);
-
+      console.log(current.get("post"));
       return current;
     });
   };
@@ -60,8 +63,11 @@ const ModalMakePost = ({ user, userImg, post, closeModal }) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     postAPost(user);
+
     closeModal();
   };
+
+  const fileSelect = React.useRef(null);
 
   return (
     <div className="whiteBg rounded modalMakePost ">
@@ -70,7 +76,7 @@ const ModalMakePost = ({ user, userImg, post, closeModal }) => {
           src={userImg}
           width={60}
           height={60}
-          className="rounded-circle me-"
+          className="rounded-circle me-1"
         />
         <h2>{user}</h2>
       </div>
@@ -85,24 +91,46 @@ const ModalMakePost = ({ user, userImg, post, closeModal }) => {
         >
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
+        <div>
+          {fileState.get("post") && (
+            <span className="p-2 mb-1">
+              <span className="p-1 text-bg-primary rounded">
+                Immagine allegata:
+              </span>
+              <span>{fileState.get("post").name}</span>
+            </span>
+          )}
+        </div>
         <input
-          className="btn btn-primary mb-3"
+          className="btn btn-primary mb-3 d-none"
           type="file"
           onChange={handleFile}
+          id="fileSelect"
+          name="fileSelect"
+          ref={fileSelect}
         />
 
         <div className="d-flex">
-          <button className="rounded-circle">
-            <i className="fas fa-image text-transparent"></i>
+          <label for="fileSelect">
+            <button
+              className="btn rounded-circle"
+              onClick={(ev) => {
+                ev.preventDefault();
+                ev.stopPropagation();
+                fileSelect.current.click();
+              }}
+            >
+              <i className="fas fa-image text-transparent fs-1"></i>
+            </button>
+          </label>
+          <button className="btn rounded-circle">
+            <i className="fab fa-youtube text-success me-1 fs-1"></i>
           </button>
-          <button className="rounded-circle">
-            <i className="fab fa-youtube text-success me-1"></i>
+          <button className="btn rounded-circle">
+            <i className="fas fa-calendar-alt text-warning me-1 fs-1"></i>
           </button>
-          <button className="rounded-circle">
-            <i className="fas fa-calendar-alt text-warning me-1"></i>
-          </button>
-          <button className="rounded-circle">
-            <i className="far fa-newspaper text-danger me-1"></i>
+          <button className="btn rounded-circle">
+            <i className="far fa-newspaper text-danger me-1 fs-1"></i>
           </button>
         </div>
         <div className="d-flex justify-content-end">

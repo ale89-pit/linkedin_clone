@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Container fluid className="w-100">
-          <Row>
+          <Row className="sticky-top">
             <Col>
               <header>
                 <NavBar />

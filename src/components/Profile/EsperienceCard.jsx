@@ -11,7 +11,8 @@ import { useLocation } from "react-router";
 
 const EsperienceCard = () => {
   const experience = useSelector((state) => state.experience.content);
-  const location= useLocation()
+  const user = useSelector((state) => state.profile.content);
+  const location = useLocation();
   const customStyles = {
     content: {
       top: "50%",
@@ -36,17 +37,32 @@ const EsperienceCard = () => {
   function closeModal() {
     setIsOpen(false);
   }
-  const visibility= location.pathname !== "/me" ? "d-none" : "d-block"
-  console.log(location)
-  console.log(visibility)
+  const visibility = location.pathname !== "/me" ? "d-none" : "d-block";
+  console.log(location);
+  console.log(visibility);
   return (
     <Card className="my-3">
-
-      <CardHeader className="whiteBg fw-bold d-flex justify-content-between align-items-center">Esperienze
-        <div className={visibility}><svg onClick={openModal} xmlns="http://www.w3.org/2000/svg" data-toggle="modal" data-target="#exampleModal" width="35" height="35" fill="currentColor" className="bi bi-plus-lg mx-2 p-1 hover" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-        </svg>
-          <Modal isOpen={modalIsOpen}
+      <CardHeader className="whiteBg fw-bold d-flex justify-content-between align-items-center">
+        Esperienze
+        <div className={visibility}>
+          <svg
+            onClick={openModal}
+            xmlns="http://www.w3.org/2000/svg"
+            data-toggle="modal"
+            data-target="#exampleModal"
+            width="35"
+            height="35"
+            fill="currentColor"
+            className="bi bi-plus-lg mx-2 p-1 hover"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+            />
+          </svg>
+          <Modal
+            isOpen={modalIsOpen}
             onAfterOpen={afterOpenModal}
             onRequestClose={closeModal}
             style={customStyles}
@@ -73,10 +89,11 @@ const EsperienceCard = () => {
       <Row>
         <Col
           xs={2}
-          className="d-flex justify-content-center align-items-center"
+          className="d-flex justify-content-center align-items-center "
         >
           <img
-            src="https://placekitten.com/100"
+            className="rounded-circle"
+            src={user.image}
             style={{ width: "50px" }}
             alt=""
           />

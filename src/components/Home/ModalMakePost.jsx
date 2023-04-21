@@ -52,6 +52,7 @@ const ModalMakePost = ({ user, userImg, post, closeModal }) => {
   };
 
   const handleFile = (ev) => {
+    ev.preventDefault();
     setFileState((current) => {
       current.delete("post");
       current.append("post", ev.target.files[0]);

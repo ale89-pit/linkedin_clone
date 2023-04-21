@@ -2,9 +2,68 @@ import { Button, Card, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Spinner } from "react-bootstrap/esm";
 
+import { profileThunk, team } from "../../redux/actions";
+import React, { useState } from "react";
+import { Form } from "react-bootstrap";
+import Modal from "react-modal";
+import { openModal } from "./EsperienceCardDet";
 const Jumbotron = ({ userLink }) => {
   const user = useSelector((state) => state.profile.content);
   const loading = useSelector((state) => state.profile.loading);
+  let id = useSelector((state) => state.profile.content._id);
+  const API_URL_PROFILE_PHOTO = `https://striveschool-api.herokuapp.com/api/profile/${id}/picture`;
+  const [fd, setFd] = useState(new FormData());
+  const reduxUser = useSelector((state) => state.login.user);
+  const dispatch = useDispatch();
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
+
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+  function closeModal() {
+    setIsOpen(false);
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("fetch iniziata invio foto");
+    console.log(user);
+    try {
+      let res = await fetch(API_URL_PROFILE_PHOTO, {
+        method: "POST",
+        body: fd,
+        headers: {
+          Authorization:
+            "Bearer " + team.find((u) => u.userName === user.username).key,
+        },
+      });
+      if (res.ok) {
+        dispatch(profileThunk(reduxUser.username));
+      }
+      let foto = res.json();
+      console.log(foto);
+    } catch (error) {
+      console.log(error);
+    }
+    setIsOpen(false);
+  };
+  const handleFile = (e) => {
+    setFd((prev) => {
+      prev.delete("profile");
+      prev.append("profile", e.target.files[0]);
+      return prev;
+    });
+  };
+  console.log(user);
   return (
     <div>
       {loading ? (

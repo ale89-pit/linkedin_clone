@@ -5,9 +5,9 @@ export const Footer = () => {
   return (
     <Container fluid className="mt-5 d-none d-md-block">
       <Row className="justify-content-center">
-        <Col md={9}>
-          <Row className="d-flex align-items-center">
-            <Col>
+        <Col xs={11}>
+          <Row className="d-flex ">
+            <Col xs={2}>
               <div className="d-flex flex-column">
                 <Link
                   className="collegamenti"
@@ -40,7 +40,7 @@ export const Footer = () => {
                 </Link>
               </div>
             </Col>
-            <Col>
+            <Col xs={2}>
               <div className="d-flex flex-column">
                 <Link
                   to={
@@ -70,7 +70,7 @@ export const Footer = () => {
                 </Link>
               </div>
             </Col>
-            <Col>
+            <Col xs={2}>
               <div className="d-flex flex-column">
                 <Link
                   to={
@@ -104,46 +104,67 @@ export const Footer = () => {
                 </Link>
               </div>
             </Col>
-            <Col>
+            <Col xs={4}>
               <div className="d-flex flex-column">
-                <Link
-                  to={
-                    "https://www.linkedin.com/help/linkedin?trk=d_flagship3_profile_view_base&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bru6up1A6Seq3bJvMtE7iUQ%3D%3D"
-                  }
-                  className="collegamenti domande"
-                >
-                  Domande?
-                </Link>
-                <p className="footerQuestion">
-                  Visita il nostro Centro assistenza
-                </p>
+                <Row>
+                  <Col xs={1}>
+                    <i class="fas fa-question"></i>
+                  </Col>
+                  <Col>
+                    <Link
+                      to={
+                        "https://www.linkedin.com/help/linkedin?trk=d_flagship3_profile_view_base&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bru6up1A6Seq3bJvMtE7iUQ%3D%3D"
+                      }
+                      className="collegamenti domande"
+                    >
+                      Domande?
+                    </Link>
+                    <p className="footerQuestion">
+                      Visita il nostro Centro assistenza
+                    </p>
+                  </Col>
+                </Row>
               </div>
               <div>
-                <Link
-                  to={
-                    "https://www.linkedin.com/mypreferences/d/categories/account"
-                  }
-                  className="collegamenti domande"
-                >
-                  Gestisci il tuo account e la tua privacy
-                </Link>
-                <p className="footerQuestion">Vai alle impostazioni</p>
+                <Row>
+                  <Col xs={1}>
+                    <i class="fas fa-cog"></i>
+                  </Col>
+                  <Col>
+                    <Link
+                      to={
+                        "https://www.linkedin.com/mypreferences/d/categories/account"
+                      }
+                      className="collegamenti domande"
+                    >
+                      Gestisci il tuo account e la tua privacy
+                    </Link>
+                    <p className="footerQuestion">Vai alle impostazioni</p>
+                  </Col>
+                </Row>
               </div>
               <div>
-                <Link
-                  to={
-                    "https://www.linkedin.com/mypreferences/d/categories/account"
-                  }
-                  className="collegamenti domande"
-                >
-                  Trasparenza sui contenuti consigliati
-                </Link>
-                <p className="footerQuestion">
-                  Scopri di più sui contenuti consigliati.
-                </p>
+                <Row>
+                  <Col xs={1}>
+                    <i class="fas fa-shield-alt"></i>
+                  </Col>
+                  <Col>
+                    <Link
+                      to={
+                        "https://www.linkedin.com/mypreferences/d/categories/account"
+                      }
+                      className="collegamenti domande"
+                    >
+                      Trasparenza sui contenuti consigliati
+                    </Link>
+                    <p className="footerQuestion">
+                      Scopri di più sui contenuti consigliati.
+                    </p>
+                  </Col>
+                </Row>
               </div>
             </Col>
-            <Col>
+            <Col xs={2}>
               <div className="d-flex flex-column">
                 <p className="footerQuestion mb-1 ">Seleziona lingua</p>
                 <select
@@ -164,14 +185,7 @@ export const Footer = () => {
             </Col>
           </Row>
           <Row>
-            <p className="footerQuestion">
-              <img
-                src="https://logos-download.com/wp-content/uploads/2016/03/LinkedIn_Logo_2019-700x175.png"
-                alt=""
-                height={15}
-              />
-              LinkedIn Corporation © 2023
-            </p>
+            <p className="footerQuestion">LinkedIn Corporation © 2023</p>
           </Row>
         </Col>
       </Row>

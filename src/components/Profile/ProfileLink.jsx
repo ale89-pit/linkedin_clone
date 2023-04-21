@@ -6,7 +6,7 @@ import Jumbotron from "./Jumbotron";
 import ForYou from "./ForYou";
 import Attività from "./Attività";
 import Analisi from "./Analisi";
-import Formazione from "./Formazione";
+import Lingue from "./Lingue";
 import Interessi from "./Interessi";
 import Esperienze from "./Esperienze";
 import Risorse from "./Risorse";
@@ -38,7 +38,7 @@ const ProfileLink = () => {
           <Attività />
           <Analisi />
           <Risorse />
-          <Formazione />
+          <Lingue />
           <Interessi />
         </Col>
         <Col xs={12} lg={3} className="bg-light">

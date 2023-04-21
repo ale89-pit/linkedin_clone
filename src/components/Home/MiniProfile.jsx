@@ -27,8 +27,8 @@ const MiniProfile = () => {
       </div>
       <img
         className="rounded-circle text-center"
-        height={50}
-        width={50}
+        height={60}
+        width={60}
         src={user.image}
         alt="img-profile"
         id="fotoMiniJumbotron"
@@ -41,7 +41,7 @@ const MiniProfile = () => {
       </Card.Body>
       <ListGroup
         id="listaJumbotronHome"
-        className="list-group-flush d-none d-md-inline"
+        className="miniProfile list-group-flush d-none d-md-inline"
       >
         <ListGroup.Item action>
           <Row>

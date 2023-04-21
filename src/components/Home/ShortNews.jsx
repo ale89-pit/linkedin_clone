@@ -5,8 +5,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 const ShortNews = () => {
   return (
     <Card className="">
-      <Container>
-        <ul id="listaNotizie" className="px-3">
+      <Container id="listaNotizie">
+        <ul className="px-3 pt-2">
           <h5 className="mt-2">Linkedin Notizie</h5>
 
           <li active>
@@ -43,7 +43,8 @@ const ShortNews = () => {
             </a>
           </li>
         </ul>
-        <p>Visualizza altro</p>
+        <hr />
+        <p className="mx-3">Visualizza altro</p>
       </Container>
     </Card>
   );

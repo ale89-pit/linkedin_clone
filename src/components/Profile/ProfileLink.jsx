@@ -13,7 +13,7 @@ import Risorse from "./Risorse";
 import ListGroupExample from "./Rightside1";
 import ProfilePost from "./ProfilePost";
 import { useDispatch, useSelector } from "react-redux";
-import { userLinkThunk } from "../../redux/actions";
+import { getExperiencesPeople, userLinkThunk } from "../../redux/actions";
 import { useParams } from "react-router-dom";
 
 const ProfileLink = () => {
@@ -25,6 +25,7 @@ const ProfileLink = () => {
 
   useEffect(() => {
     dispatch(userLinkThunk(user, id));
+    dispatch(getExperiencesPeople(user,id))
   }, []);
 
   return (

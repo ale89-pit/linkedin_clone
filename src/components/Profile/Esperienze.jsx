@@ -18,22 +18,15 @@ import EsperienceCard from "./EsperienceCard";
 import EsperienceCardDet from "./EsperienceCardDet";
 
 const Esperienze = () => {
-  //Sezione per far mostrare modal
-  const [show, setShow] = useState(false);
-  const [show2, setShow2] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleClose2 = () => setShow2(false);
   
-  const handleShow2 = (id) =>{
-    dispatch(addSingleExp(experience.find((e)=>e._id === id)))
-    setShow2(true)
+  
+  
+  
     
-    }
     
-    const loadingSigleExp = useSelector(state => state.experience.loadingExp)
     const singlexp = useSelector(state=>state.experience.singleExp)
     console.log(singlexp)
-  const handleShow = () => setShow(true);
+  
   
   
   const location = useLocation()

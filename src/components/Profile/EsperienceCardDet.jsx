@@ -6,7 +6,9 @@ import Modal from "react-modal";
 import ExpModalPost from "./ExpModalPost";
 import ExpModalPutDel from "./ExpModalPutDel";
 import { Col } from "react-bootstrap";
+import { useLocation } from "react-router";
 const EsperienceCardDet = (props) => {
+    
     const customStyles = {
         content: {
             top: "50%",
@@ -30,7 +32,7 @@ const EsperienceCardDet = (props) => {
         // references are now sync'd and can be accessed.
     }
 
-
+    
 
     function closeModal() {
         setIsOpen(false);
@@ -53,7 +55,7 @@ const EsperienceCardDet = (props) => {
                         contentLabel="Example Modal"
                     >
 
-                        <ExpModalPost />
+                        <ExpModalPost closeModal={closeModal}/>
                     </Modal>
 
                     <svg onClick={openModal2} xmlns="http://www.w3.org/2000/svg" width="25" height="25" data-toggle="modal" data-target="#PutDelExpModal" fill="currentColor" className="bi bi-pencil mx-2 p-1 hover" viewBox="0 0 16 16">
@@ -66,7 +68,7 @@ const EsperienceCardDet = (props) => {
                         contentLabel="Example Modal"
                     >
 
-                        <ExpModalPutDel expId={props.exp._id} />
+                        <ExpModalPutDel expId={props.exp._id} closModal2={closeModal2}/>
 
                     </Modal>
 

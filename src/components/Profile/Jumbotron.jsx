@@ -114,7 +114,7 @@ const Jumbotron = ({ userLink }) => {
                   )}
                   <p className="text-start mb-1">Studente presso</p>
                   <p className="text-start text-secondary">{user.area} </p>
-
+                 
                   <Button
                     className="text-start mx-1 py-0 rounded-pill "
                     variant="primary"
@@ -122,7 +122,15 @@ const Jumbotron = ({ userLink }) => {
                     <b>Disponibile per</b>
                   </Button>
                 </div>
-
+                <p onClick={openModal} className="text-end fs-2"><i className="fas fa-camera hover"></i></p>
+                  <Modal isOpen={modalIsOpen} contentLabel="Example Modal"
+                    onRequestClose={closeModal}
+                    style={customStyles}>
+                    <Form onSubmit={handleSubmit}><input type="file" onChange={handleFile} />
+                      <Button type="submit">invia foto</Button>
+                      <Button type="button" variant="secondary" onClick={closeModal}>Close</Button>
+                    </Form>
+                  </Modal>
                 <Button
                   className="text-start mx-1  py-1 rounded-pill"
                   variant="outline-primary"

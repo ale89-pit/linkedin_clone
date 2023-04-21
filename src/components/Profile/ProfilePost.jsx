@@ -9,7 +9,7 @@ const ProfilePost = ({ user }) => {
   useEffect(() => {
     allPosts[0].forEach((el) => {
       if (el.username === user) {
-        setMyPosts([...myPosts, el]);
+        setMyPosts((myPosts) => [...myPosts, el]);
       }
     });
   }, []);
@@ -18,7 +18,7 @@ const ProfilePost = ({ user }) => {
 
   return (
     <div>
-      {myPosts.length > 0 &&
+      {myPosts &&
         myPosts.map((el, i) => <ShowPost key={el._id + i} post={el} />)}
     </div>
   );

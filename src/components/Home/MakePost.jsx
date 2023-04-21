@@ -57,7 +57,11 @@ const MakePost = () => {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <ModalMakePost user={user} userImg={userImg} />
+          <ModalMakePost
+            user={user}
+            userImg={userImg}
+            closeModal={closeModal}
+          />
         </Modal>
       </div>
       <div className="makePostBtnsBox d-flex justify-content-between">

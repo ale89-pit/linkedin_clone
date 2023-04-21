@@ -82,7 +82,12 @@ const ShowPost = ({ post }) => {
               style={customStyles}
               contentLabel="Example Modal"
             >
-              <ModalModifyPost user={user} userImg={userImg} post={post} />
+              <ModalModifyPost
+                user={user}
+                userImg={userImg}
+                post={post}
+                closeModal={closeModal}
+              />
             </Modal>
           </div>
         )}

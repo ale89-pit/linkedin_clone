@@ -24,7 +24,7 @@ const Profile = () => {
           <Jumbotron />
           <ForYou />
           <Esperienze />
-          {allPosts > 0 && <ProfilePost user={user} />}
+          {allPosts[0].length > 0 && <ProfilePost user={user} />}
           <Attività />
           <Analisi />
           <Risorse />

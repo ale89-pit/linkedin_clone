@@ -1,14 +1,15 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import ModalModifyPost from "./ModalModifyPost";
 import { Link, useParams } from "react-router-dom";
+import { getExperiencesPeople } from "../../redux/actions";
 
 const ShowPost = ({ post }) => {
   const user = useSelector((state) => state.login.user.username);
   const userImg = useSelector((state) => state.profile.content.image);
-
+ const dispatch= useDispatch()
   const customStyles = {
     content: {
       top: "50%",
@@ -49,7 +50,7 @@ const ShowPost = ({ post }) => {
               width={40}
               height={40}
             />
-            <Link
+            <Link 
               className="nav-link d-inline"
               to={"/profiles/" + post.user._id}
             >

@@ -10,6 +10,7 @@ export const LOGIN = "LOGIN";
 export const GET_USER = "GET_USER";
 export const GET_USERLINK = "GET_USERLINK";
 export const GET_PASSWORD = "GET_PASSWORD";
+export const ADD_PEOPLE_EXP = "ADD_PEOPLE_EXP";
 export const team = [
   {
     userName: "MindTheDiv",
@@ -146,6 +147,28 @@ export const allExperiences = (user, id) => {
           type: GET_ALLEXPERIENCES,
           payload: experiences,
         });
+      } else {
+        alert("Error fetching results");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+export const getExperiencesPeople = (user, id) => {
+  return async (dispatch, getState) => {
+    console.log("fetch");
+    try {
+      const response = await fetch(API_URL_PROFILES + id + "/experiences", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + team.find((u) => u.userName === user).key,
+        },
+      });
+      if (response.ok) {
+        const experiences = await response.json();
+        console.log(experiences);
+        dispatch({ type: ADD_PEOPLE_EXP, payload: experiences });
       } else {
         alert("Error fetching results");
       }

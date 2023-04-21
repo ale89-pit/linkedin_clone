@@ -16,13 +16,14 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 
 const NavBar = () => {
   const user = useSelector((state) => state.profile.content);
+  const logged = useSelector((state) => state.login.isLogged);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar bg="light">
+    <Navbar bg="light" id="navBar">
       <Container>
         <Nav className="my-2 my-lg-0 w-100" style={{ maxHeight: "50px" }}>
           <Row className="justify-content-between w-100 align-item-center">
@@ -98,13 +99,17 @@ const NavBar = () => {
                 <p className="d-none d-lg-inline">Notifiche</p>
               </Nav.Link>
               <DropdownButton
-                drop="down"
+                drop="down-centered"
                 variant="transparent"
-                id="dropdownNavbar"
+                id="dropdown-button-drop-down-center"
                 title={
-                  <div className="m-0 p-0">
-                    <img src={user.image} height={20} alt="1"></img>
-                    <p className="d-none d-lg-block m-0">"Tu"</p>
+                  <div>
+                    <img
+                      src={user.image}
+                      height={25}
+                      className="rounded"
+                      alt="1"
+                    ></img>
                   </div>
                 }
                 size="sm"
@@ -153,7 +158,7 @@ const NavBar = () => {
               <div className="mb-2 text-center">
                 <Button
                   variant="transparent"
-                  className="border-0"
+                  className="border-0 "
                   onClick={handleShow}
                 >
                   <svg
@@ -177,15 +182,20 @@ const NavBar = () => {
                       <Card.Header>Scopri altri prodotti Linkedin</Card.Header>
                       <Card.Body>
                         <Card.Text className="text-center">
-                          <Row>
+                          <Row id="perLeAziende">
                             <Col xs={3}>
-                              <i class="fad fa-play-circle">
-                                <p>Learnig</p>
+                              <i class="far fa-play-circle">
+                                {" "}
+                                <p>
+                                  <b>Learnig</b>
+                                </p>
                               </i>
                             </Col>
                             <Col xs={3}>
                               <i class="far fa-chart-bar">
-                                <p>Insights</p>
+                                <p>
+                                  <b>Insights</b>
+                                </p>
                               </i>
                             </Col>
                             <Col xs={3}>

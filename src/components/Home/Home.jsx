@@ -11,6 +11,7 @@ import { Spinner } from "react-bootstrap";
 import MiniProfile from "./MiniProfile";
 import ShortNews from "./ShortNews";
 import FooterHome from "./FooterHome";
+import SottoJumbotron from "./SottoJumbotron";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const Home = () => {
         <Row>
           <Col xs={12} md={4} lg={3}>
             <MiniProfile />
+            <SottoJumbotron />
           </Col>
           <Col xs={12} md={8} lg={6}>
             <MakePost />

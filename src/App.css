@@ -50,7 +50,6 @@ body {
   font-weight: bold;
   font-size: 0.8em;
   margin-bottom: 8px;
-  margin: 0.7em;
 }
 
 .domande {
@@ -129,10 +128,22 @@ h6 {
   align-self: center;
 }
 
-#listaNotizie > li > a {
+#listaNotizie ul > li > a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.637);
   font-size: small;
+}
+
+#listaNotizie p {
+  font-size: small;
+}
+
+#listaNotizie p :hover {
+  text-decoration: underline;
+}
+
+#listaNotizie ul > li :hover {
+  text-decoration: underline;
 }
 
 #listaJumbotronHome {
@@ -145,4 +156,16 @@ h6 {
 
 #barraVerticale {
   height: 50px;
+}
+
+#sottoJumbotron a {
+  text-decoration: none;
+}
+
+#sottoJumbotron {
+  font-size: small;
+}
+
+.miniProfile {
+  font-size: small;
 }

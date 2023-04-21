@@ -8,7 +8,7 @@ const MiniProfile = () => {
   const user = useSelector((state) => state.profile.content);
 
   return (
-    <Card className="align-item-center mb-3">
+    <Card className="align-item-center mb-3 miniProfile">
       <Card.Img variant="top" height={90} src={user.image} />
       <img
         className="rounded-circle text-center"
@@ -26,7 +26,7 @@ const MiniProfile = () => {
       </Card.Body>
       <ListGroup
         id="listaJumbotronHome"
-        className="list-group-flush d-none d-md-inline"
+        className="miniProfile list-group-flush d-none d-md-inline"
       >
         <ListGroup.Item action>
           <Row>

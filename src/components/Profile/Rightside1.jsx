@@ -3,7 +3,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 const Rightside1 = () => {
   return (
-    <Card>
+    <Card className="mb-3">
       <ListGroup variant="list-group-flush">
         <ListGroup.Item>Modifica il profilo pubblico e l'URL</ListGroup.Item>
         <ListGroup.Item>

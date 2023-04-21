@@ -5,7 +5,7 @@ import Jumbotron from "./Jumbotron";
 import ForYou from "./ForYou";
 import Attività from "./Attività";
 import Analisi from "./Analisi";
-import Formazione from "./Formazione";
+import Lingue from "./Lingue";
 import Interessi from "./Interessi";
 import Esperienze from "./Esperienze";
 import Risorse from "./Risorse";
@@ -13,6 +13,7 @@ import Rightside1 from "./Rightside1";
 import EsperienceCard from "./EsperienceCard";
 import ProfilePost from "./ProfilePost";
 import { useSelector } from "react-redux";
+import Collegamenti from "./Collegamenti";
 
 const Profile = () => {
   const user = useSelector((state) => state.login.user.username);
@@ -28,11 +29,12 @@ const Profile = () => {
           <Attività />
           {allPosts > 0 && <ProfilePost user={user} />}
           <Esperienze />
-          <Formazione />
+          <Lingue />
           <Interessi />
         </Col>
         <Col xs={12} lg={4}>
           <Rightside1 />
+          <Collegamenti />
         </Col>
       </Row>
     </Container>

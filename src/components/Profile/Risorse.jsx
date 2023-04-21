@@ -40,7 +40,7 @@ const Risorse = () => {
           </Row>
         </div>
         <button className="ButtonMostraRisorse border-top btn btn-light d-flex justify-content-center align-items-center">
-          Mostra tutte le attività
+          Mostra tutte le risorse
         </button>
       </div>
     </>

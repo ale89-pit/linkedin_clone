@@ -7,16 +7,19 @@ const Attività = () => {
         <Col className="ButtonFlex">
           <h5>Attività</h5>
           <Button variant="outline-primary btn rounded-pill">
-            Avvia un post
+            Crea un post
           </Button>
         </Col>
 
-        <p className="text-primary fw-bold mb-2"> follower </p>
-        <p>ha diffuso questo post </p>
+        <p className="text-primary fw-bold mb-2">1672 follower </p>
+        <p>
+          <b>Non hai ancora pubblicato nulla</b> <br />I post che condividi
+          appariranno qui
+        </p>
       </Row>
-        <button className="ButtonMostraRisorse border-top btn btn-light d-flex justify-content-center align-items-center">
-          Mostra tutte le attività
-        </button>
+      <button className="ButtonMostraRisorse border-top btn btn-light d-flex justify-content-center align-items-center">
+        Mostra tutte le attività
+      </button>
     </Container>
   );
 };

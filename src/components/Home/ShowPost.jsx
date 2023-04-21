@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import ModalModifyPost from "./ModalModifyPost";
+import { Link, useParams } from "react-router-dom";
 
 const ShowPost = ({ post }) => {
   const user = useSelector((state) => state.login.user.username);
@@ -32,6 +33,8 @@ const ShowPost = ({ post }) => {
   function closeModal() {
     setIsOpen(false);
   }
+  const { id } = useParams();
+
   return (
     <div className="whiteBg rounded border  pb-0 w-100 d-flex flex-column mb-2">
       <div className="d-flex justify-content-between w-100">
@@ -46,12 +49,17 @@ const ShowPost = ({ post }) => {
               width={40}
               height={40}
             />
-            <small
-              className="fw-bold d-inline"
-              style={{ height: "fit-content" }}
+            <Link
+              className="nav-link d-inline"
+              to={"/profiles/" + post.user._id}
             >
-              {post.username}
-            </small>
+              <small
+                className="fw-bold d-inline "
+                style={{ height: "fit-content" }}
+              >
+                {post.username}
+              </small>
+            </Link>
           </div>
 
           <small className="align-self-end ">
@@ -74,7 +82,12 @@ const ShowPost = ({ post }) => {
               style={customStyles}
               contentLabel="Example Modal"
             >
-              <ModalModifyPost user={user} userImg={userImg} post={post} />
+              <ModalModifyPost
+                user={user}
+                userImg={userImg}
+                post={post}
+                closeModal={closeModal}
+              />
             </Modal>
           </div>
         )}

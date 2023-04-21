@@ -8,6 +8,7 @@ export const POST_NEW_EXPE = "POST_NEW_EXPE";
 
 export const LOGIN = "LOGIN";
 export const GET_USER = "GET_USER";
+export const GET_USERLINK = "GET_USERLINK";
 export const GET_PASSWORD = "GET_PASSWORD";
 export const team = [
   {
@@ -31,9 +32,9 @@ export const team = [
     key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNjZjYzZTE4NmE4NzAwMTQzODY3YmQiLCJpYXQiOjE2ODE3MTY3OTgsImV4cCI6MTY4MjkyNjM5OH0.bSwIRR4GF21LG6XvgnbmmW_T7fLNOrWmMJCGxDVIYZE",
   },
   {
-    userName: "Federico",
-    password: "federico",
-    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNlYWRhMmZjYTEyOTAwMTQ0MGMwZjQiLCJpYXQiOjE2ODE4MjkyODIsImV4cCI6MTY4MzAzODg4Mn0._I-QvA_DTCaHtHLrPkNPHWf8KUJxyngghrMwxZ2NIog",
+    userName: "freiff",
+    password: "1234qwer",
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQxNDEwMmI0YjQ4NDAwMTQ4ZDVkMjIiLCJpYXQiOjE2ODE5OTgwODIsImV4cCI6MTY4MzIwNzY4Mn0.bKv2_4kra-kj-Wl6-ItnnBB1Nv3yPCEcyT_CWVj943c",
   },
 ];
 
@@ -93,10 +94,33 @@ export const allProfilesThunk = (user) => {
       });
       if (response.ok) {
         const profiles = await response.json();
-        console.log(profiles, getState);
         dispatch({
           type: GET_ALLPROFILES,
           payload: profiles,
+        });
+      } else {
+        alert("Error fetching results");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const userLinkThunk = (user, id) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await fetch(API_URL_PROFILES + id, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + team.find((u) => u.userName === user).key,
+        },
+      });
+      if (response.ok) {
+        const profileLink = await response.json();
+        dispatch({
+          type: GET_USERLINK,
+          payload: profileLink,
         });
       } else {
         alert("Error fetching results");
@@ -118,7 +142,6 @@ export const allExperiences = (user, id) => {
       });
       if (response.ok) {
         const experiences = await response.json();
-        console.log(experiences, getState);
         dispatch({
           type: GET_ALLEXPERIENCES,
           payload: experiences,

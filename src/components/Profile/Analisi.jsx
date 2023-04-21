@@ -1,5 +1,9 @@
 import { Col, Row } from "react-bootstrap";
 
+const randomNumber = (max) => {
+  return Math.floor(Math.random() * max);
+};
+
 const Analisi = () => {
   return (
     <div className="whiteBg border rounded mt-2 py-2 px-3">
@@ -13,7 +17,7 @@ const Analisi = () => {
         </Col>
         <Col xs={11} lg={4}>
           <p>
-            <b>11 visualizzazioni del profilo</b>
+            <b>{randomNumber(500)} visualizzazioni del profilo</b>
             <br />
             Scopri chi ha visitato il tuo profilo
           </p>
@@ -23,8 +27,8 @@ const Analisi = () => {
         </Col>
         <Col xs={11} lg={4}>
           <p>
-            <b>26 comparse nei motori di ricerca</b> <br /> vedi quante volte
-            compari nei risultati di ricerca.
+            <b>{randomNumber(500)} comparse nei motori di ricerca</b> <br />{" "}
+            vedi quante volte compari nei risultati di ricerca.
           </p>
         </Col>
       </Row>

@@ -1,34 +1,21 @@
 import Form from "react-bootstrap/Form";
-import { sendChange } from "../../redux/actions/HomePost";
+import { postsThunk, sendChange } from "../../redux/actions/HomePost";
 import { useSelector, useDispatch } from "react-redux";
 import { API_POSTS } from "../../redux/actions/HomePost";
 import { team } from "../../redux/actions";
 import { useEffect, useState } from "react";
 
-const ModalModifyPost = ({ user, userImg, post }) => {
+const ModalModifyPost = ({ user, userImg, post, closeModal }) => {
   const dispatch = useDispatch();
   const [textValue, setTextValue] = useState("");
 
-  //   const getAPost = async (user) => {
-  //     try {
-  //       const response = await fetch(API_POSTS + `${post._id}`, {
-  //         method: "GET",
-  //         headers: {
-  //           Authorization: "Bearer " + team.find((u) => u.userName === user).key,
-  //         },
-  //       });
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         // setTextValue(data.text);
-  //         // dispatch(sendChange(data))
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
   useEffect(() => {
     setTextValue(post.text);
+    setFileState((current) => {
+      current.delete("post");
+      current.append("post", fileState);
+      return current;
+    });
     dispatch(sendChange(textValue));
   }, []);
 
@@ -42,6 +29,9 @@ const ModalModifyPost = ({ user, userImg, post }) => {
         },
         body: JSON.stringify({ text: textValue }),
       });
+      if (response.ok) {
+        putAFilePost(user);
+      }
       return response.json();
     } catch (error) {
       console.log(error);
@@ -56,6 +46,9 @@ const ModalModifyPost = ({ user, userImg, post }) => {
           Authorization: "Bearer " + team.find((u) => u.userName === user).key,
         },
       });
+      if (response.ok) {
+        dispatch(postsThunk(user));
+      }
     } catch (error) {
       console.log(error);
     }
@@ -66,13 +59,15 @@ const ModalModifyPost = ({ user, userImg, post }) => {
   const putAFilePost = async (user) => {
     try {
       const response = await fetch(API_POSTS + `${post._id}`, {
-        method: "PUT",
+        method: "POST",
         body: fileState,
         headers: {
           Authorization: "Bearer " + team.find((u) => u.userName === user).key,
         },
       });
-      return response.json();
+      if (response.ok) {
+        dispatch(postsThunk(user));
+      }
     } catch (error) {
       console.log(error);
     }
@@ -89,8 +84,8 @@ const ModalModifyPost = ({ user, userImg, post }) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     putAPost(user);
-    putAFilePost(user);
-    window.location.reload();
+
+    closeModal();
   };
 
   return (
@@ -143,7 +138,7 @@ const ModalModifyPost = ({ user, userImg, post }) => {
             onClick={(e) => {
               e.preventDefault();
               deletePost(user);
-              window.location.reload();
+              closeModal();
             }}
             className="btn btn-danger"
           >

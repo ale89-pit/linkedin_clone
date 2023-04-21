@@ -12,6 +12,7 @@ import ExperienceDetails from "./components/Profile/EsperienceDetails";
 import React from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
+import ProfileLink from "./components/Profile/ProfileLink";
 Modal.setAppElement("#root");
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <div className="p-3">
             <Routes>
               <Route path="/me" element={<Profile />}></Route>
+              <Route path="/profiles/:id" element={<ProfileLink />}></Route>
               <Route path="/" element={<Login />}></Route>
               <Route path="/home" element={<Home />}></Route>
               <Route path="/experience" element={<ExperienceDetails />} />

@@ -37,8 +37,8 @@ const EsperienceCard = () => {
   }
   return (
     <Card className="my-3">
-      <CardHeader className="whiteBg fw-bold d-flex justify-content-between align-items-center my-3">
-        <h5>Esperienze</h5>
+      <CardHeader className="whiteBg fw-bold d-flex justify-content-between align-items-center">
+        Esperienze
         <div>
           <svg
             onClick={openModal}
@@ -93,7 +93,7 @@ const EsperienceCard = () => {
           />
         </Col>
         <Col>
-          {experience > 0 ? (
+          {experience.length > 0 ? (
             <Card.Body>
               <Card.Title>{experience[experience.length - 1].role}</Card.Title>
               <Card.Text className="m-0">

@@ -1,10 +1,11 @@
-import { GET_ALLPROFILES, GET_PROFILES } from "../actions";
+import { GET_ALLPROFILES, GET_PROFILES, GET_USERLINK } from "../actions";
 
 const profileState = {
   content: {
     loading: false,
   },
   allProfiles: [],
+  userLink: null,
 };
 export const profileReducer = (state = profileState, action) => {
   switch (action.type) {
@@ -19,7 +20,11 @@ export const profileReducer = (state = profileState, action) => {
         ...state,
         allProfiles: [action.payload],
       };
-
+    case GET_USERLINK:
+      return {
+        ...state,
+        userLink: action.payload,
+      };
     default:
       return state;
   }

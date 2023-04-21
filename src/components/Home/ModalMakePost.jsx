@@ -4,8 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { API_POSTS } from "../../redux/actions/HomePost";
 import { team } from "../../redux/actions";
 import { useEffect, useState } from "react";
+import { postsThunk } from "../../redux/actions/HomePost";
 
-const ModalMakePost = ({ user, userImg, post }) => {
+const ModalMakePost = ({ user, userImg, post, closeModal }) => {
   const textPost = useSelector((state) => state.home.text);
   const dispatch = useDispatch();
   console.log(post);
@@ -51,6 +52,7 @@ const ModalMakePost = ({ user, userImg, post }) => {
     setFileState((current) => {
       current.delete("post");
       current.append("post", ev.target.files[0]);
+
       return current;
     });
   };
@@ -58,7 +60,7 @@ const ModalMakePost = ({ user, userImg, post }) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     postAPost(user);
-    // window.location.reload();
+    closeModal();
   };
 
   return (

@@ -1,5 +1,7 @@
 import { Container, Row, Button, Col } from "react-bootstrap";
-
+const randomNumber = (max) => {
+  return Math.floor(Math.random() * max);
+};
 const Attività = () => {
   return (
     <Container className="mt-2 border rounded p-0 whiteBg">

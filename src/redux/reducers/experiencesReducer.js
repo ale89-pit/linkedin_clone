@@ -27,7 +27,7 @@ export const experiencesReducers = (state = InitialState, action) => {
       console.log("azione add people", action.payload);
       return {
         ...state,
-        people: action.paylod,
+        people: action.payload,
       };
 
     default:

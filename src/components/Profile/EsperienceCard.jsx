@@ -11,8 +11,11 @@ import { useLocation } from "react-router";
 
 const EsperienceCard = () => {
   const experience = useSelector((state) => state.experience.content);
+  const expPeople = useSelector((state)=> state.experience.people)
   const user = useSelector((state) => state.profile.content);
   const location = useLocation();
+  const userLink = useSelector((state) => state.profile.userLink);
+  console.log(expPeople)
   const customStyles = {
     content: {
       top: "50%",
@@ -38,8 +41,11 @@ const EsperienceCard = () => {
     setIsOpen(false);
   }
   const visibility = location.pathname !== "/me" ? "d-none" : "d-block";
+  const expDir = location.pathname !== "/me" ? expPeople :  experience
+  const photoUser = location.pathname !== "/me" ? userLink : user
   console.log(location);
   console.log(visibility);
+  console.log(expDir);
   return (
     <Card className="my-3">
       <CardHeader className="whiteBg fw-bold d-flex justify-content-between align-items-center">
@@ -93,20 +99,20 @@ const EsperienceCard = () => {
         >
           <img
             className="rounded-circle"
-            src={user.image}
+            src={photoUser.image}
             style={{ width: "50px" }}
             alt=""
           />
         </Col>
         <Col>
-          {experience.length > 0 ? (
+          {expDir.length > 0 ? (
             <Card.Body>
-              <Card.Title>{experience[experience.length - 1].role}</Card.Title>
+              <Card.Title>{expDir[experience.length - 1].role}</Card.Title>
               <Card.Text className="m-0">
-                {experience[experience.length - 1].description}
+                {expDir[experience.length - 1].description}
               </Card.Text>
               <Card.Text className="m-0">
-                {experience[experience.length - 1].company}
+                {expDir[experience.length - 1].company}
               </Card.Text>
             </Card.Body>
           ) : (
